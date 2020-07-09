@@ -17,7 +17,7 @@
 
 👩‍🏫 I teach things
 
-You'll find the code for some of my projects and my awesome [2:20 Tutorials](https://www.youtube.com/watch?v=OkzCbPKqEtA) video series here on GitHub. 
+You'll find the code for some of my projects and my awesome [2:20 Tutorials](https://www.youtube.com/watch?v=OkzCbPKqEtA) video series here on GitHub. Reach out to me if you have any feedback or questions, and don't forget to star my repos if you enjoy them!
 
 
 
