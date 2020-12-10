@@ -3,7 +3,7 @@
 <a href="https://dev.to/catmcgeecode"><img height="30" src="https://res.cloudinary.com/practicaldev/image/fetch/s--g3JdSGe6--/c_limit,f_auto,fl_progressive,q_80,w_190/https://practicaldev-herokuapp-com.freetls.fastly.net/assets/rainbowdev.svg"></a>&nbsp;&nbsp;
 <a href="https://twitter.com/catmcgeecode"><img height="30" src="https://image.flaticon.com/icons/svg/124/124021.svg"></a>&nbsp;&nbsp;
 <a href="https://instagram.com/catmcgeecode"><img height="30" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/1200px-Instagram_logo_2016.svg.png"></a>&nbsp;&nbsp;
-<a href="https://www.buymeacoffee.com/catmcgee"><img height="30" src="https://www.buymeacoffee.com/assets/img/guidelines/logo-mark-2.svg"></a>
+<a href="https://www.buymeacoffee.com/catmcgee"><img height="30" src="https://bmc-dev.s3.us-east-2.amazonaws.com/assets/icons/bmc_icon_black.png"></a>
 </p>
 
 Hey there!
