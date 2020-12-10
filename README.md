@@ -37,6 +37,6 @@ Another project that my Twitter followers are really excited about is [JamSwiper
 
 Follow me on Twitter to keep up to date with me and my projects!
 <p align="center">
-    <a href="https://twitter.com/catmcgeecode"><img width="500px" src="https://i.postimg.cc/mkWqTyTx/Screen-Shot-2020-07-27-at-9-00-40-PM.png"></a>
+    <a href="https://twitter.com/catmcgeecode"><img width="500px" src="https://i.ibb.co/vVBHPrg/catmcgeetwitter.png"></a>
 </p>
 
