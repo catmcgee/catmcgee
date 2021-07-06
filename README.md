@@ -11,10 +11,7 @@ Hey there!
 I'm Cat. I write [blog posts on DEV](https://www.dev.to/catmcgeecode) and create [YouTube videos](https://www.youtube.com/channel/UC7khnAAAID1WQ_4gQO73Gmw) about how to start your career in tech. I [tweet useful tips and threads](https://twitter.com/CatMcGeeCode/status/1278314269482930176) for junior developers and help bridge the gap between learning the basics and landing your first dev job. If I've helped you recently, please feel free to send a [tip](https://www.buymeacoffee.com/catmcgee), [email me](mailto:hello@mcgee.cat), or give me a ❤️ or a 🦄 on [DEV](https://www.dev.to/catmcgeecode)!
  
   ---
- 
- <p>
-  <img width="140" align='left' src="https://i.postimg.cc/fLBqmQNK/coding-interview-logo.png">
-</p>
+
  
 ### Advocating for a decentralized web
 The decentralized web is my biggest passion, and it's my mission to make it more accessible. I'll soon be creating YouTube videos and tutorials on how to get started buiding decentralized apps. Keep an eye on this space!
