@@ -20,6 +20,6 @@ The decentralized web is my biggest passion, and it's my mission to make it more
 
 Follow me on Twitter to keep up to date with me and my projects
 <p align="center">
-    <a href="https://twitter.com/catmcgeecode"><img width="500px" src="https://i.ibb.co/mc19KxW/Screen-Shot-2021-04-29-at-7-29-07-PM.png"></a>
+    <a href="https://twitter.com/catmcgeecode"><img width="500px" src="https://i.ibb.co/wdDwNDn/Screen-Shot-2021-07-06-at-2-05-03-PM.png" border="0"></a>"></a>
 </p>
 
