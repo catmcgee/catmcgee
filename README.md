@@ -10,10 +10,10 @@
 
 ##### ABOUT ME
 
+- 💅 Currently: [Hype](https://hy.pe), Previously: [Aave](https://aave.com/), [Coursedog](https://www.coursedog.com/), [Unit4](https://www.unit4.com/)
 - ⭐ My favorites: Javascript, Go, Rust, Solidity
-- 🌍 I'm a former digital nomad and still outside of Portugal 6 months / year
-- 💻 You can normally catch me playing around with new web3 protocols and SDKs
-- 💅 Previously: [Aave](https://aave.com/), [Coursedog](https://www.coursedog.com/), [Unit4](https://www.unit4.com/)
 - ✍🏻 I write opnion and tutorial articles on [Hashnode](https://blog.mcgee.cat/why-web3-matters)
-- 🐦 Reach me on [Twitter](https://twitter.com/catmcgeecode 
+- 💻 You can normally catch me playing around with new web3 protocols and SDKs
+- 🌍 I'm a former digital nomad and still outside of Portugal 6 months / year
+- 🐦 Reach me on [Twitter](https://twitter.com/catmcgeecode)
 - 🎵 Fun fact: I play piano, guitar, trumpet, and have a diploma in musical theatre
