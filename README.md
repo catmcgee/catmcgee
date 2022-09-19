@@ -1,25 +1,19 @@
-# [![cat mcgee github](https://i.postimg.cc/CKb4HTj8/catmcgeegithub.png)](https://mcgee.cat)
-<p align='center'>
-<a href="https://dev.to/catmcgeecode"><img height="30" src="https://res.cloudinary.com/practicaldev/image/fetch/s--g3JdSGe6--/c_limit,f_auto,fl_progressive,q_80,w_190/https://practicaldev-herokuapp-com.freetls.fastly.net/assets/rainbowdev.svg"></a>&nbsp;&nbsp;
-<a href="https://twitter.com/catmcgeecode"><img height="30" src="https://image.flaticon.com/icons/svg/124/124021.svg"></a>&nbsp;&nbsp;
-<a href="https://instagram.com/catmcgeecode"><img height="30" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/1200px-Instagram_logo_2016.svg.png"></a>&nbsp;&nbsp;
-<a href="https://www.buymeacoffee.com/catmcgee"><img height="30" src="https://bmc-dev.s3.us-east-2.amazonaws.com/assets/icons/bmc_icon_black.png"></a>
-</p>
+### Hey there 👋
 
-Hey there!
+#### I'm a blockchain developer advocate currently in Lisbon, Portugal 🇵🇹
 
-I'm Cat. I write [blog posts on DEV](https://www.dev.to/catmcgeecode) and create [YouTube videos](https://www.youtube.com/channel/UC7khnAAAID1WQ_4gQO73Gmw) about how to start your career in tech. I [tweet useful tips and threads](https://twitter.com/CatMcGeeCode/status/1278314269482930176) for junior developers and help bridge the gap between learning the basics and landing your first dev job. If I've helped you recently, please feel free to send a [tip](https://www.buymeacoffee.com/catmcgee), [email me](mailto:hello@mcgee.cat), or give me a ❤️ or a 🦄 on [DEV](https://www.dev.to/catmcgeecode)!
- 
-  ---
+##### NOW
 
- 
-### Advocating for a decentralized web
-The decentralized web is my biggest passion, and it's my mission to make it more accessible. I'll soon be creating YouTube videos and tutorials on how to get started buiding decentralized apps. Keep an eye on this space!
+- ✨ Leading Developer Relations at [Hype](https://hy.pe)
+- 🇨🇴 Planning my trip to [Devcon](https://devcon.org/) in October
+- 🎤 Next talk: Building dapps for non-crypto people on [Monthly Dev](https://daily.dev/) on September 27th
 
-### Twitter
+##### ABOUT ME
 
-Follow me on Twitter to keep up to date with me and my projects
-<p align="center">
-    <a href="https://twitter.com/catmcgeecode"><img width="500px" src="https://i.ibb.co/wdDwNDn/Screen-Shot-2021-07-06-at-2-05-03-PM.png" border="0"></a>"></a>
-</p>
-
+- ⭐ My favorites: Javascript, Go, Rust, Solidity
+- 🌍 I'm a former digital nomad and still outside of Portugal 6 months / year
+- 💻 You can normally catch me playing around with new web3 protocols and SDKs
+- 💅 Previously: [Aave](https://aave.com/), [Coursedog](https://www.coursedog.com/), [Unit4](https://www.unit4.com/)
+- ✍🏻 I write opnion and tutorial articles on [Hashnode](https://blog.mcgee.cat/why-web3-matters)
+- 🐦 Reach me on [Twitter](https://twitter.com/catmcgeecode 
+- 🎵 Fun fact: I play piano, guitar, trumpet, and have a diploma in musical theatre
