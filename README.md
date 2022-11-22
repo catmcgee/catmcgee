@@ -5,8 +5,8 @@
 ##### NOW
 
 - ✨ Leading Developer Relations at [Hype](https://hy.pe)
-- 🇨🇴 Planning my trip to [Devcon](https://devcon.org/) in October
-- 🎤 Next talk: Building dapps for non-crypto people on [Monthly Dev](https://daily.dev/) on September 27th
+- 🇨🇴 Planning my trip to [DevRelCon Prague](https://developerrelations.com/event/devrelcon-prague-2022) in December
+- 🎤 Next talk: Addressing Skepticism in Web3 for DevRel Engineers at [DevRelCon](https://developerrelations.com/event/devrelcon-prague-2022) on December 7th
 
 ##### ABOUT ME
 
