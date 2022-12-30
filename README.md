@@ -1,6 +1,6 @@
 ### Hey there 👋
 
-#### I'm a blockchain developer advocate currently in Lisbon, Portugal 🇵🇹
+#### I'm a developer advocate currently in Lisbon, Portugal 🇵🇹
 
 ##### NOW
 
