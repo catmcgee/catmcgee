@@ -5,7 +5,7 @@
 ##### NOW
 
 - ✨ Leading Developer Relations at [Hype](https://hy.pe)
-- 🇨🇴 Planning my trip to [ETHDenver](https://events.ethdenver.com/)) in February
+- 🇨🇴 Planning my trip to [ETHDenver](https://events.ethdenver.com/) in February
 - 🎤 Next talk: TBA, reach out to me on [Twitter](https://twitter.com/CatMcGeeCode)
 - 🧠 Catch me at a [Centre for Humane Technology event](https://www.humanetech.com/get-involved)
 
