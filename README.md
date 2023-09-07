@@ -5,7 +5,7 @@
 ##### NOW
 
 - ✨ Running things at [Hype DevRel](https://hy.pe/devrel)
-- 👋 Catch me at 🇬🇧 [ZKSummit](https://www.zksummit.com/) -> 🇪🇸 [SmartCon](https://smartcon.chain.link/) -> 🇹🇷 [Devconnect]
+- 👋 Catch me at 🇬🇧 [ZKSummit](https://www.zksummit.com/) -> 🇪🇸 [SmartCon](https://smartcon.chain.link/) -> 🇹🇷 [Devconnect](https://devconnect.org/schedule)
 - 🎤 Next talk: TBA, reach out to me on [Twitter](https://twitter.com/CatMcGeeCode)
 - 🧠 Volunteering at [Centre for Humane Technology](https://www.humanetech.com/)
 
