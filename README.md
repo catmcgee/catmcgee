@@ -5,7 +5,7 @@
 ##### NOW
 
 - 💙 Developer Relations engineer at [Aztec](https://aztec.network/)
-- 👋 Catch me at 🇬🇧 [ZKSummit](https://www.zksummit.com/) -> 🇪🇸 [SmartCon](https://smartcon.chain.link/) -> 🇹🇷 [Devconnect](https://devconnect.org/schedule)
+- 👋 Catch me at 🇬🇧 [ETHLondon](https://www.encode.club/eth-london/) -> 🇹🇷 [Devconnect](https://devconnect.org/schedule)
 - 🎤 Next talks:
   - How to Win Hackathons at [ETHLondon Kickoff](https://lu.ma/EthLondonMixer)
   - Programmable Privacy on Ethereum: An Introduction to Aztec and Noir at [ETHLondon](https://www.encode.club/eth-london)
