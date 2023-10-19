@@ -6,7 +6,11 @@
 
 - 💙 Developer Relations engineer at [Aztec](https://aztec.network/)
 - 👋 Catch me at 🇬🇧 [ZKSummit](https://www.zksummit.com/) -> 🇪🇸 [SmartCon](https://smartcon.chain.link/) -> 🇹🇷 [Devconnect](https://devconnect.org/schedule)
-- 🎤 Next talk: TBA, reach out to me on [Twitter](https://twitter.com/CatMcGeeCode)
+- 🎤 Next talks:
+  - How to Win Hackathons at [ETHLondon Kickoff](https://lu.ma/EthLondonMixer)
+  - Programmable Privacy on Ethereum: An Introduction to Aztec and Noir at [ETHLondon](https://www.encode.club/eth-london)
+  - Programmable Privacy on Ethereum: Introducing Aztec.nr (workshop) at [Nethermind Summit Istanbul](https://lu.ma/nethermind-summit-istanbul)
+  - Set up the Aztec Sandbox in 10 Minutes (mini workshops continuously running all day) at [ProgCrypto Istanbul](https://progcrypto.org/)
 - 🧠 Volunteering at [Centre for Humane Technology](https://www.humanetech.com/)
 
 ##### ABOUT ME
