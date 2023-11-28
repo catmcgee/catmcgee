@@ -1,6 +1,6 @@
 ### Hey there 👋
 
-#### I'm a developer advocate currently in Lisbon, Portugal 🇵🇹
+#### I'm a developer relations engineer from Ireland, currently in Tokyo 🇯🇵
 
 ##### NOW
 
