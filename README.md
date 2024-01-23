@@ -5,7 +5,7 @@
 ##### NOW
 
 - 💙 Developer Relations engineer at [Aztec](https://aztec.network/)
-- 👋 Catch  me at[ETHGlobal London]([https://www.ethdenver.com/](https://ethglobal.com/events/london2024) in March
+- 👋 Catch  me at [ETHGlobal London](https://ethglobal.com/events/london2024) in March
 - 🎤 Next talks: TBA
 - 🧠 Volunteering at [Centre for Humane Technology](https://www.humanetech.com/)
 
