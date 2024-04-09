@@ -5,7 +5,7 @@
 ##### NOW
 
 - 💙 Developer Relations engineer at [Aztec](https://aztec.network/)
-- 👋 Catch  me at [ETHDublin](https://ethglobal.com/events/london2024](https://ethdublin.io/) in May 
+- 👋 Catch  me at [ETHDublin](https://ethdublin.io/) in May 
 - 🎤 Next talks: "An eye for an eye, a proof for a proof - Recursive proof verifictions in Solidity" @ ETHDublin
 - 🧠 Volunteering at [Centre for Humane Technology](https://www.humanetech.com/)
 
