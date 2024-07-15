@@ -11,12 +11,12 @@
 
 ##### PREVIOUSLY
 
+- 👻 Eng @ [Aave](https://aave.com/)
 - ✨ Started [Hype DevRel](https://hy.pe/devrel)
 - 🟡 Dev growth council at [Mode](https://mode.network)
-- 👻 Eng @ [Aave](https://aave.com/),
-- 🧭 Before crypto, eng @ [Coursedog](https://www.coursedog.com/), [Unit4](https://www.unit4.com/), [Evenset](https://evenset.com/), + some other contracting
+- 🧭 Before crypto: eng @ [Coursedog](https://www.coursedog.com/), [Unit4](https://www.unit4.com/), [Evenset](https://evenset.com/) + some other contracting
 
 ##### FOLLOW ME
 - 🐦 [Twitter/X](https://www.twitter.com/catmcgeecode/)
 - 📷 [Instagram](https://www.instagram.com/catmcgeecode/)
-- ✈️ [NomadList](https://nomadlist.com/@catmcgee)
+- 🌍 [NomadList](https://nomadlist.com/@catmcgee)
