@@ -5,17 +5,18 @@
 ##### NOW
 
 - 💙 Developer Relations engineer at [Aztec](https://aztec.network/)
-- 👋 Catch  me at [ETHDublin](https://ethdublin.io/) in May 
-- 🎤 Next talks: "An eye for an eye, a proof for a proof - Recursive proof verifictions in Solidity" @ ETHDublin
+- 👋 Catch  me at [ETHWarsaw](https://www.ethwarsaw.dev/) in September 
+- 🎤 Next talk TBD
 - 🧠 Volunteering at [Centre for Humane Technology](https://www.humanetech.com/)
 
-##### ABOUT ME
+##### PREVIOUSLY
 
 - ✨ Started [Hype DevRel](https://hy.pe/devrel)
 - 🟡 Dev growth council at [Mode](https://mode.network)
-- 👻 Previously: [Aave](https://aave.com/), [Coursedog](https://www.coursedog.com/), [Unit4](https://www.unit4.com/)
-- ⭐ My favorites: Noir, Javascript, Python, Go, Rust, Solidity
-- 🐦 Reach me on [Twitter](https://twitter.com/catmcgeecode)
-- 🌍 I've lived in 4 continents
-- 🎵 I play piano, guitar, trumpet, and do musical theatre
-- 💪 I love powerlifting
+- 👻 Eng @ [Aave](https://aave.com/),
+- 🧭 Before crypto, eng @ [Coursedog](https://www.coursedog.com/), [Unit4](https://www.unit4.com/), [Evenset](https://evenset.com/), + some other contracting
+
+##### FOLLOW ME
+- 🐦 [Twitter/X](https://www.twitter.com/catmcgeecode/)
+- 📷 [Instagram](https://www.instagram.com/catmcgeecode/)
+- ✈️ [NomadList](https://nomadlist.com/@catmcgee)
