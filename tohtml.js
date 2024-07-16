@@ -1,24 +1,18 @@
 const fs = require('fs');
 
-function enhancedMarkdownToHtml(markdown) {
+function simpleMarkdownToHtml(markdown) {
   return markdown
     // Headers
     .replace(/^### (.*$)/gm, '<h3>$1</h3>')
     .replace(/^#### (.*$)/gm, '<h4>$1</h4>')
     .replace(/^##### (.*$)/gm, '<h5>$1</h5>')
-    // Bold
-    .replace(/\*\*(.*)\*\*/gm, '<strong>$1</strong>')
-    // Italic
-    .replace(/\*(.*)\*/gm, '<em>$1</em>')
     // Links
     .replace(/\[(.*?)\]\((.*?)\)/gm, '<a href="$2">$1</a>')
     // Lists
     .replace(/^\s*[\-\*] (.*)/gm, '<li>$1</li>')
     // Wrap lists in <ul> tags
     .replace(/(<li>.*<\/li>)/s, '<ul>$1</ul>')
-    // Preserve emojis (this is a simple approach, might not cover all cases)
-    .replace(/([\u2700-\u27BF]|[\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2011-\u26FF]|\uD83E[\uDD10-\uDDFF])/g, '&#x$1;')
-    // Line breaks
+    // Preserve line breaks
     .replace(/\n/gm, '<br>');
 }
 
@@ -26,7 +20,7 @@ function enhancedMarkdownToHtml(markdown) {
 const readmeContent = fs.readFileSync('README.md', 'utf-8');
 
 // Convert Markdown to HTML
-const htmlContent = enhancedMarkdownToHtml(readmeContent);
+const htmlContent = simpleMarkdownToHtml(readmeContent);
 
 // Create a simple HTML template with emoji favicon and updated title
 const htmlTemplate = `
