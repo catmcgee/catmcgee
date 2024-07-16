@@ -5,8 +5,5 @@
   "main": "tohtml.js",
   "scripts": {
     "build": "node tohtml.js"
-  },
-  "dependencies": {
-    "marked": "^1.2.9"
   }
 }
