@@ -1,14 +1,12 @@
 {
   "name": "catmcgee",
   "version": "1.0.0",
-  "description": "#### I'm a developer relations engineer from Ireland, currently in Lisbon 🇵🇹",
+  "description": "Cat McGee, crypto devrel & privacy advocate",
   "main": "tohtml.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "node tohtml.js"
   },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "marked": "^13.0.2"
+    "marked": "^1.2.9"
   }
 }
