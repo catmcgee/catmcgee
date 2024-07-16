@@ -1,26 +1,45 @@
 const fs = require('fs');
 
-function simpleMarkdownToHtml(markdown) {
+function improvedMarkdownToHtml(markdown) {
+  let inList = false;
+  
   return markdown
     // Headers
-    .replace(/^### (.*$)/gm, '<h3>$1</h3>')
-    .replace(/^#### (.*$)/gm, '<h4>$1</h4>')
-    .replace(/^##### (.*$)/gm, '<h5>$1</h5>')
+    .replace(/^### (.*$)/gm, '</p><h3>$1</h3><p>')
+    .replace(/^#### (.*$)/gm, '</p><h4>$1</h4><p>')
+    .replace(/^##### (.*$)/gm, '</p><h5>$1</h5><p>')
     // Links
     .replace(/\[(.*?)\]\((.*?)\)/gm, '<a href="$2">$1</a>')
     // Lists
-    .replace(/^\s*[\-\*] (.*)/gm, '<li>$1</li>')
-    // Wrap lists in <ul> tags
-    .replace(/(<li>.*<\/li>)/s, '<ul>$1</ul>')
-    // Preserve line breaks
-    .replace(/\n/gm, '<br>');
+    .replace(/^\s*[\-\*] (.*)/gm, (match, p1) => {
+      if (!inList) {
+        inList = true;
+        return `</p><ul><li>${p1}</li>`;
+      }
+      return `<li>${p1}</li>`;
+    })
+    // End list if next line is not a list item
+    .replace(/(<\/li>)(?!\s*<li>)/g, (match, p1) => {
+      if (inList) {
+        inList = false;
+        return `${p1}</ul><p>`;
+      }
+      return p1;
+    })
+    // Wrap content in paragraphs
+    .replace(/^(?!<[uh]|<li|<\/ul|<p|<\/p)(.+)/gm, '<p>$1</p>')
+    // Remove empty paragraphs
+    .replace(/<p>\s*<\/p>/g, '')
+    // Ensure document starts and ends with paragraph tags
+    .replace(/^(?!<p)/, '<p>')
+    .replace(/(?!<\/p>)$/, '</p>');
 }
 
 // Read the README.md file
 const readmeContent = fs.readFileSync('README.md', 'utf-8');
 
 // Convert Markdown to HTML
-const htmlContent = simpleMarkdownToHtml(readmeContent);
+const htmlContent = improvedMarkdownToHtml(readmeContent);
 
 // Create a simple HTML template with emoji favicon and updated title
 const htmlTemplate = `
@@ -41,6 +60,19 @@ const htmlTemplate = `
         }
         ul {
             padding-left: 20px;
+            margin-top: 0.5em;
+            margin-bottom: 0.5em;
+        }
+        li {
+            margin-bottom: 0.25em;
+        }
+        h3, h4, h5 {
+            margin-top: 1em;
+            margin-bottom: 0.5em;
+        }
+        p {
+            margin-top: 0.5em;
+            margin-bottom: 0.5em;
         }
     </style>
 </head>
