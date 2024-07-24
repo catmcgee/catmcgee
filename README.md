@@ -5,7 +5,7 @@
 ##### NOW
 
 - 💙 Developer Relations engineer at [Aztec](https://aztec.network/)
-- 👋 Catch  me at [ETHWarsaw](https://www.ethwarsaw.dev/) in September 
+- 👋 Catch  me at [ETHWarsaw](https://www.ethwarsaw.dev/) in September, [ETHRome](https://www.ethrome.org/) in October, and [Devcon](https://devcon.org/en/) in November
 - 🎤 Next talk TBD
 - 🧠 Volunteering at [Centre for Humane Technology](https://www.humanetech.com/)
 
