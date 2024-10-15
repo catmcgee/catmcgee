@@ -5,8 +5,8 @@
 ##### NOW
 
 - 💙 Developer Relations engineer at [Aztec](https://aztec.network/)
-- 👋 Catch  me at [ETHWarsaw](https://www.ethwarsaw.dev/) in September, [ETHRome](https://www.ethrome.org/) in October, and [Devcon](https://devcon.org/en/) in November
-- 🎤 Next talk at [Verifiable Summit](https://verifiablesummit.com/) in Warsaw - I am giving a Noir workshop (ZK intuitions) and an Aztec workshop (contracts to circuits)
+- 👋 Catch  me at [Devcon](https://devcon.org/en/) in November
+- 🎤 Next talk at [ZKHub](https://blocklive.io/zkhub_bkk) in Bangkok - Aztec contracts workshop + panel. Speaking at various other events around Devcon too
 - 🧠 Volunteering at [Centre for Humane Technology](https://www.humanetech.com/)
 
 ##### PREVIOUSLY
