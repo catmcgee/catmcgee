@@ -5,7 +5,7 @@
 ##### NOW
 
 - 💙 Developer Relations engineer at [Aztec](https://aztec.network/)
-- 👋 Catch  me at [Devcon](https://devcon.org/en/) in November
+- 👋 Catch  me at TBA
 - 🎤 Next talk at [Aleph Hackathon](https://blocklive.io/zkhub_bkk) virtual in Buenos Aires - wtf is zk + diving into Noir ciruits and Solidity verifiers
 - 🧠 Volunteering at [Centre for Humane Technology](https://www.humanetech.com/)
 
