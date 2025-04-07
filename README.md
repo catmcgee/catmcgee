@@ -5,7 +5,6 @@
 ##### NOW
 
 - 💙 Developer Relations engineer at [Aztec](https://aztec.network/)
-- 👋 Currently in Buenos Aires for [Crecimiento's Aleph Pop-up City](https://bento.me/crecimientoar)
 - 🗺️ Find me:
   - April 15-16: Seoul for [Buidl Asia](https://www.buidl.asia/)
   - May 5-22: London
