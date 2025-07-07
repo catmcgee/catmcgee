@@ -5,7 +5,7 @@
 I care about building a digital world based on the principles of our irl world. Ownership, community, social consequence, privacy, and trust.
 
 ##### NOW
-- Taking a short break to explore new tech
+- Taking a short break to explore new tech. [Reach out](https://www.twitter.com/catmcgeecode/) if you're interested in working together
 - Interested in privacy, STARKs, bitcoin, and anything contributing to rust
 
 - 🗺️ Find me:
