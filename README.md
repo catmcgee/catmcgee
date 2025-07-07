@@ -16,7 +16,7 @@ I care about building a digital world based on the principles of our irl world. 
 - 🧠 Volunteering at [Centre for Humane Technology](https://www.humanetech.com/)
 
 ##### PREVIOUSLY
-- 💙 Developer Relations engineer at [Aztec](https://aztec.network/)
+- 💙 Developer Relations engineer @ [Aztec](https://aztec.network/)
 - 👻 Eng @ [Aave](https://aave.com/)
 - ✨ Built [Hype DevRel](https://hy.pe/devrel)
 - 🟡 Dev growth council at [Mode](https://mode.network)
