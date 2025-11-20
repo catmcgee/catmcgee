@@ -6,7 +6,7 @@ I care about building a digital world based on the principles of our irl world. 
 
 ##### NOW
 - Developer Relations Engineer at Solana Foundation, focused on improving developer experience
-- Interested in privacy, ZK, bitcoin, and anything contributing to rust
+- Interested in AI, privacy, ZK, Rust, and anything making technology more humane
 
 - 🗺️ Find me:
   - November - December: Buenos Aires for [devconnect](https://devconnect.org/)
