@@ -1,6 +1,6 @@
-# Hey there 👋
+### Hey there 👋
 
-### I'm a developer relations engineer from Ireland ☘️, making my home in Buenos Aires
+#### I'm a developer relations engineer from Ireland ☘️, making my home in Buenos Aires
 
 I care about building a digital world based on the principles of our irl world. Ownership, community, social consequence, privacy, and trust. Follow my journey on 🐦 [Twitter/X](https://www.twitter.com/catmcgee/).
 
@@ -20,11 +20,11 @@ I care about building a digital world based on the principles of our irl world. 
 - 🧭 Before crypto: eng @ [Coursedog](https://www.coursedog.com/), [Unit4](https://www.unit4.com/), [Evenset](https://evenset.com/) + random other things
 
 #### PROJECTS
-#### Crypto
+##### Crypto
 - [Solana confidential Transfers explorer](https://github.com/catmcgee/confidential-transfers-explorer)
 - [Solana mixer](https://github.com/catmcgee/noir-solana-private-transfers)
 - [Plata Mia](https://github.com/catmcgee/plata-mia) - Cross-chain stealth addresses
 
-#### Random fun
+##### Random fun
 - [Reality check](https://realitycheck.mcgee.cat/) - First-principles astrology readings for people who don't believe in astrology
 - Beekeeper (bees in TEEs) - Get AI agents to autonomously do the boring parts of your work, while maintaining privacy
