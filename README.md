@@ -10,7 +10,7 @@ I care about building a digital world based on the principles of our irl world. 
 
 - 🗺️ Find me:
   - Now: Buenos Aires for [devconnect](https://devconnect.org/)
-  - May: Shanghai for [the mu]([https://solana.com/breakpoint](https://x.com/themu_xyz/status/2013994255094837492))
+  - May: Shanghai for [the mu](https://x.com/themu_xyz/status/2013994255094837492)
 
 ##### PREVIOUSLY
 - 💚 Developer Relations engineer @ [Aztec](https://aztec.network/)
