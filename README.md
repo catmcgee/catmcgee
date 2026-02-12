@@ -9,8 +9,8 @@ I care about building a digital world based on the principles of our irl world. 
 - Interested in AI, privacy, cryptography, and anything making technology more humane
 
 🗺️ Find me:
-- Now: Buenos Aires
-- May: Shanghai for [the mu](https://x.com/themu_xyz/status/2013994255094837492)
+  - Now: Buenos Aires
+  - May: Shanghai for [the mu](https://x.com/themu_xyz/status/2013994255094837492)
 
 #### PREVIOUSLY
 - 💚 Developer Relations engineer @ [Aztec](https://aztec.network/)
