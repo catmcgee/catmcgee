@@ -8,9 +8,9 @@ I care about building a digital world based on the principles of our irl world. 
 - Developer Relations Engineer at Solana Foundation, focused on privacy and improving agent devex
 - Interested in AI, privacy, cryptography, and anything making technology more humane
 
-- 🗺️ Find me:
-  - Now: Buenos Aires for [devconnect](https://devconnect.org/)
-  - May: Shanghai for [the mu](https://x.com/themu_xyz/status/2013994255094837492)
+🗺️ Find me:
+- Now: Buenos Aires
+- May: Shanghai for [the mu](https://x.com/themu_xyz/status/2013994255094837492)
 
 #### PREVIOUSLY
 - 💚 Developer Relations engineer @ [Aztec](https://aztec.network/)
