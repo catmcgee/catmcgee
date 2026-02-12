@@ -8,10 +8,6 @@ I care about building a digital world based on the principles of our irl world. 
 - Developer Relations Engineer at Solana Foundation, focused on privacy and improving agent devex
 - Interested in AI, privacy, cryptography, and anything making technology more humane
 
-🗺️ Find me:
-  - Now: Buenos Aires
-  - May: Shanghai for [the mu](https://x.com/themu_xyz/status/2013994255094837492)
-
 #### PREVIOUSLY
 - 💚 Developer Relations engineer @ [Aztec](https://aztec.network/)
 - 👻 Eng @ [Aave](https://aave.com/)
@@ -28,3 +24,7 @@ I care about building a digital world based on the principles of our irl world. 
 ##### Random fun
 - [Reality check](https://realitycheck.mcgee.cat/) - First-principles astrology readings for people who don't believe in astrology
 - Beekeeper (bees in TEEs) - Get AI agents to autonomously do the boring parts of your work, while maintaining privacy
+
+#### Find me irl
+- Now: Buenos Aires
+- May: Shanghai for [the mu](https://x.com/themu_xyz/status/2013994255094837492)
