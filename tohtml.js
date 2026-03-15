@@ -14,19 +14,11 @@ function escapeHtml(value) {
     .replace(/'/g, '&#39;');
 }
 
-function decorateText(text) {
-  return String(text).replace(/Buenos Aires/g, 'Buenos Aires 🇦🇷');
-}
-
 function renderInlineMarkdown(markdown) {
-  return escapeHtml(decorateText(markdown)).replace(
+  return escapeHtml(String(markdown)).replace(
     /\[([^\]]+)\]\(([^)]+)\)/g,
     '<a href="$2" target="_blank" rel="noreferrer">$1</a>'
   );
-}
-
-function stripMarkdown(markdown) {
-  return decorateText(markdown).replace(/\[([^\]]+)\]\(([^)]+)\)/g, '$1');
 }
 
 function ensureTrailingSlash(route) {
@@ -160,65 +152,124 @@ function validateReadmeModel(model) {
   });
 }
 
-function localizedModel(model, locale) {
-  if (locale === 'en') {
-    return model;
-  }
+function buildLocalizedMarkdown(locale) {
+  const content = site.translations[locale];
+  const ui = site.ui[locale];
+  const lines = [
+    `### ${content.greeting}`,
+    '',
+    `#### ${content.heroTitle}`,
+    '',
+    content.intro,
+    '',
+    `#### ${ui.focusTitle}`,
+    ...content.now.map((item) => `- ${item}`),
+    '',
+    `#### ${ui.previousTitle}`,
+    ...content.previously.map((item) => `- ${item}`),
+    '',
+    `#### ${ui.projectsTitle}`,
+  ];
 
-  return site.translations[locale];
+  site.readmeSnapshot.projectGroups.forEach((groupName) => {
+    lines.push(`##### ${ui.projectGroups[groupName]}`);
+    lines.push(...content.projects[groupName].map((item) => `- ${item}`));
+    lines.push('');
+  });
+
+  lines.push(`#### ${ui.locationTitle}`);
+  lines.push(...content.locations.map((item) => `- ${item}`));
+
+  return lines.join('\n');
 }
 
-function listItems(items) {
-  return `<ul>${items.map((item) => `<li>${renderInlineMarkdown(item)}</li>`).join('')}</ul>`;
+function renderMarkdown(markdown) {
+  const lines = String(markdown).split(/\r?\n/);
+  const html = [];
+  let paragraph = [];
+  let listItems = [];
+
+  const flushParagraph = () => {
+    if (!paragraph.length) {
+      return;
+    }
+
+    html.push(`<p>${renderInlineMarkdown(paragraph.join(' '))}</p>`);
+    paragraph = [];
+  };
+
+  const flushList = () => {
+    if (!listItems.length) {
+      return;
+    }
+
+    html.push(`<ul>${listItems.map((item) => `<li>${renderInlineMarkdown(item)}</li>`).join('')}</ul>`);
+    listItems = [];
+  };
+
+  for (const rawLine of lines) {
+    const trimmed = rawLine.trim();
+
+    if (!trimmed) {
+      flushParagraph();
+      flushList();
+      continue;
+    }
+
+    const heading = trimmed.match(/^(#{3,5})\s+(.+)$/);
+    if (heading) {
+      flushParagraph();
+      flushList();
+      const level = heading[1].length;
+      html.push(`<h${level}>${renderInlineMarkdown(heading[2])}</h${level}>`);
+      continue;
+    }
+
+    if (trimmed.startsWith('- ')) {
+      flushParagraph();
+      listItems.push(trimmed.slice(2).trim());
+      continue;
+    }
+
+    flushList();
+    paragraph.push(trimmed);
+  }
+
+  flushParagraph();
+  flushList();
+
+  return html.join('\n');
 }
 
 function renderLanguageSwitcher(locale) {
+  const localeInfo = site.locales[locale];
   const ui = site.ui[locale];
   const links = localeCodes
     .map((code) => {
-      const localeInfo = site.locales[code];
+      const target = site.locales[code];
       const active = code === locale ? ' active' : '';
-      const flag = localeInfo.flagAsset
-        ? `<img class="lang-flag" src="${relativeAsset(site.locales[locale].route, localeInfo.flagAsset)}" alt="" aria-hidden="true">`
+      const flag = target.flagAsset
+        ? `<img class="lang-flag" src="${relativeAsset(localeInfo.route, target.flagAsset)}" alt="" aria-hidden="true">`
         : '';
+      const current = code === locale ? ' aria-current="page"' : '';
 
-      return `<a class="lang-link${active}" href="${relativeRoute(site.locales[locale].route, localeInfo.route)}" lang="${localeInfo.code}" hreflang="${localeInfo.code}">${flag}${escapeHtml(
-        localeInfo.switcherLabel
+      return `<a class="lang-link${active}" href="${relativeRoute(localeInfo.route, target.route)}" lang="${target.code}" hreflang="${target.code}"${current}>${flag}${escapeHtml(
+        target.switcherLabel
       )}</a>`;
     })
-    .join('');
+    .join('<span class="lang-divider">/</span>');
 
-  return `<nav class="language-switcher" aria-label="${escapeHtml(ui.languageLabel)}">${links}</nav>`;
+  return `<nav class="language-switcher" aria-label="${escapeHtml(ui.languageLabel)}"><span class="language-label">${escapeHtml(
+    ui.languageLabel
+  )}:</span>${links}</nav>`;
 }
 
-function renderProjectSections(locale, content) {
-  const projectGroups = site.ui[locale].projectGroups;
-
-  return Object.entries(content.projects)
-    .map(([groupName, items]) => {
-      return `<h6>${escapeHtml(projectGroups[groupName])}</h6>
-${listItems(items)}`;
-    })
-    .join('\n');
-}
-
-function renderContent(locale, model) {
-  const content = localizedModel(model, locale);
-  const ui = site.ui[locale];
-
+function renderContent(locale, markdown) {
   return `<div class="page">
     ${renderLanguageSwitcher(locale)}
-    <p class="greeting">${escapeHtml(content.greeting)}</p>
-    <h1>${escapeHtml(stripMarkdown(content.heroTitle))}</h1>
-    <p>${renderInlineMarkdown(content.intro)}</p>
-    <h2>${escapeHtml(ui.focusTitle)}</h2>
-    ${listItems(content.now)}
-    <h2>${escapeHtml(ui.previousTitle)}</h2>
-    ${listItems(content.previously)}
-    <h2>${escapeHtml(ui.projectsTitle)}</h2>
-    ${renderProjectSections(locale, content)}
-    <h2>${escapeHtml(ui.locationTitle)}</h2>
-    ${listItems(content.locations)}
+    <article class="markdown-body">
+      ${renderMarkdown(markdown)}
+    </article>
   </div>`;
 }
 
@@ -264,7 +315,6 @@ function structuredData(locale) {
 function renderHead(locale) {
   const localeInfo = site.locales[locale];
   const meta = site.meta[locale];
-  const route = localeInfo.route;
   const alternates = localeCodes
     .map((code) => `<link rel="alternate" hreflang="${site.locales[code].code}" href="${absoluteUrl(site.locales[code].route)}">`)
     .concat(`<link rel="alternate" hreflang="x-default" href="${absoluteUrl(site.locales.en.route)}">`)
@@ -280,24 +330,24 @@ function renderHead(locale) {
     <meta property="og:site_name" content="${escapeHtml(site.brandName)}">
     <meta property="og:title" content="${escapeHtml(meta.title)}">
     <meta property="og:description" content="${escapeHtml(meta.description)}">
-    <meta property="og:url" content="${absoluteUrl(route)}">
+    <meta property="og:url" content="${absoluteUrl(localeInfo.route)}">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="${escapeHtml(meta.title)}">
     <meta name="twitter:description" content="${escapeHtml(meta.description)}">
-    <link rel="canonical" href="${absoluteUrl(route)}">
+    <link rel="canonical" href="${absoluteUrl(localeInfo.route)}">
     ${alternates}
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%2311513f'/%3E%3Ctext x='50' y='58' text-anchor='middle' font-family='Arial' font-size='36' fill='white'%3ECM%3C/text%3E%3C/svg%3E">
-    <link rel="stylesheet" href="${relativeAsset(route, 'styles.css')}">
+    <link rel="stylesheet" href="${relativeAsset(localeInfo.route, 'styles.css')}">
     ${structuredData(locale)}
   </head>`;
 }
 
-function renderPage(locale, model) {
+function renderPage(locale, markdown) {
   return `<!DOCTYPE html>
 <html lang="${site.locales[locale].code}">
 ${renderHead(locale)}
 <body>
-  ${renderContent(locale, model)}
+  ${renderContent(locale, markdown)}
 </body>
 </html>`;
 }
@@ -347,12 +397,13 @@ Sitemap: ${site.siteUrl}/sitemap.xml
 }
 
 function buildSite() {
-  const readme = fs.readFileSync(path.join(outRoot, 'README.md'), 'utf8');
+  const readme = fs.readFileSync(path.join(outRoot, 'README.md'), 'utf8').trim();
   const model = parseReadme(readme);
   validateReadmeModel(model);
 
   localeCodes.forEach((locale) => {
-    writeRoute(site.locales[locale].route, renderPage(locale, model));
+    const markdown = locale === 'en' ? readme : buildLocalizedMarkdown(locale);
+    writeRoute(site.locales[locale].route, renderPage(locale, markdown));
   });
 
   buildSitemap();
