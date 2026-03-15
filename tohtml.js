@@ -259,9 +259,7 @@ function renderLanguageSwitcher(locale) {
     })
     .join('<span class="lang-divider">/</span>');
 
-  return `<nav class="language-switcher" aria-label="${escapeHtml(ui.languageLabel)}"><span class="language-label">${escapeHtml(
-    ui.languageLabel
-  )}:</span>${links}</nav>`;
+  return `<nav class="language-switcher" aria-label="${escapeHtml(ui.languageLabel)}">${links}</nav>`;
 }
 
 function renderContent(locale, markdown) {

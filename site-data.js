@@ -25,7 +25,7 @@ const site = {
     },
     ga: {
       code: 'ga',
-      switcherLabel: 'GA',
+      switcherLabel: '🇮🇪 GA',
       nativeLabel: 'Gaeilge',
       route: '/ga/',
     },

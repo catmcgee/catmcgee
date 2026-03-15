@@ -39,13 +39,8 @@ a {
   font-size: 14px;
 }
 
-.language-label,
 .lang-divider {
   color: var(--muted);
-}
-
-.language-label {
-  font-weight: 700;
 }
 
 .lang-link {
