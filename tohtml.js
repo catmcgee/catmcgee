@@ -4,7 +4,6 @@ const { site } = require('./site-data');
 
 const outRoot = __dirname;
 const localeCodes = Object.keys(site.locales);
-const pageIds = Object.keys(site.pageRoutes);
 
 function escapeHtml(value) {
   return String(value)
@@ -15,15 +14,19 @@ function escapeHtml(value) {
     .replace(/'/g, '&#39;');
 }
 
+function decorateText(text) {
+  return String(text).replace(/Buenos Aires/g, 'Buenos Aires 🇦🇷');
+}
+
 function renderInlineMarkdown(markdown) {
-  return escapeHtml(markdown).replace(
+  return escapeHtml(decorateText(markdown)).replace(
     /\[([^\]]+)\]\(([^)]+)\)/g,
     '<a href="$2" target="_blank" rel="noreferrer">$1</a>'
   );
 }
 
 function stripMarkdown(markdown) {
-  return markdown.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '$1');
+  return decorateText(markdown).replace(/\[([^\]]+)\]\(([^)]+)\)/g, '$1');
 }
 
 function ensureTrailingSlash(route) {
@@ -54,6 +57,10 @@ function relativeRoute(fromRoute, toRoute) {
 function relativeAsset(fromRoute, assetName) {
   const fromDir = routeDir(fromRoute) || '.';
   return path.posix.relative(fromDir, assetName);
+}
+
+function relativeAnchorRoute(fromRoute, toRoute, anchor) {
+  return `${relativeRoute(fromRoute, toRoute)}#${anchor}`;
 }
 
 function parseReadme(markdown) {
@@ -136,21 +143,25 @@ function validateReadmeModel(model) {
     throw new Error('README parsing failed. Expected greeting, hero title, and intro paragraph.');
   }
 
-  assertLength(model.now, site.translations.ca.now, 'now');
-  assertLength(model.previously, site.translations.ca.previously, 'previously');
-  assertLength(model.locations, site.translations.ca.locations, 'locations');
-
-  const expectedGroups = Object.keys(site.readmeSnapshot.projects);
+  const expectedGroups = site.readmeSnapshot.projectGroups;
   const actualGroups = Object.keys(model.projects);
   assertLength(actualGroups, expectedGroups, 'projectGroups');
 
-  for (const group of expectedGroups) {
-    if (!model.projects[group]) {
-      throw new Error(`README structure drift detected. Missing project group "${group}".`);
+  expectedGroups.forEach((groupName, index) => {
+    if (actualGroups[index] !== groupName) {
+      throw new Error(`README structure drift detected. Expected project group "${groupName}".`);
     }
+  });
 
-    assertLength(model.projects[group], site.translations.ca.projects[group], `projects.${group}`);
-  }
+  Object.entries(site.translations).forEach(([locale, translation]) => {
+    assertLength(model.now, translation.now, `${locale}.now`);
+    assertLength(model.previously, translation.previously, `${locale}.previously`);
+    assertLength(model.locations, translation.locations, `${locale}.locations`);
+
+    expectedGroups.forEach((groupName) => {
+      assertLength(model.projects[groupName], translation.projects[groupName], `${locale}.projects.${groupName}`);
+    });
+  });
 }
 
 function localizedModel(model, locale) {
@@ -158,15 +169,13 @@ function localizedModel(model, locale) {
     return model;
   }
 
-  return {
-    greeting: site.translations.ca.greeting,
-    heroTitle: site.translations.ca.heroTitle,
-    intro: site.translations.ca.intro,
-    now: site.translations.ca.now,
-    previously: site.translations.ca.previously,
-    projects: site.translations.ca.projects,
-    locations: site.translations.ca.locations,
-  };
+  return site.translations[locale];
+}
+
+function listItems(items) {
+  return `<ul class="clean-list">${items
+    .map((item) => `<li>${renderInlineMarkdown(item)}</li>`)
+    .join('')}</ul>`;
 }
 
 function projectCard(item) {
@@ -180,32 +189,19 @@ function projectCard(item) {
   </article>`;
 }
 
-function listItems(items) {
-  return `<ul class="clean-list">${items
-    .map((item) => `<li>${renderInlineMarkdown(item)}</li>`)
-    .join('')}</ul>`;
-}
-
-function readmeSourcePanel(locale) {
-  const ui = site.ui[locale];
-  return `<section class="panel">
-    <div class="note-card">
-      <span class="kicker">${escapeHtml(ui.readmeSourceLabel)}</span>
-      <p>${escapeHtml(ui.readmeSourceText)}</p>
-    </div>
-  </section>`;
-}
-
-function renderLanguageSwitcher(locale, pageId) {
+function renderLanguageSwitcher(locale) {
   const ui = site.ui[locale];
   const links = localeCodes
     .map((code) => {
-      const route = site.pageRoutes[pageId];
-      const href = relativeRoute(route[locale], route[code]);
       const active = code === locale ? ' active' : '';
-      return `<a class="lang-link${active}" href="${href}" lang="${site.locales[code].code}" hreflang="${site.locales[code].code}">${escapeHtml(
-        site.locales[code].switcherLabel
-      )}</a>`;
+      const localeInfo = site.locales[code];
+      const flag = localeInfo.flagAsset
+        ? `<img class="lang-flag" src="${relativeAsset(site.locales[locale].route, localeInfo.flagAsset)}" alt="" aria-hidden="true">`
+        : '';
+
+      return `<a class="lang-link${active}" href="${relativeRoute(site.locales[locale].route, localeInfo.route)}" lang="${localeInfo.code}" hreflang="${localeInfo.code}">${flag}<span class="lang-label">${escapeHtml(
+        localeInfo.switcherLabel
+      )}</span></a>`;
     })
     .join('');
 
@@ -214,190 +210,117 @@ function renderLanguageSwitcher(locale, pageId) {
   )}</span>${links}</div>`;
 }
 
-function renderHeader(locale, pageId) {
+function renderAnchorNav(locale) {
   const ui = site.ui[locale];
-  const nav = site.navOrder
-    .map((navId) => {
-      const href = relativeRoute(site.pageRoutes[pageId][locale], site.pageRoutes[navId][locale]);
-      const active = navId === pageId ? ' active' : '';
-      return `<a class="nav-link${active}" href="${href}">${escapeHtml(ui.nav[navId])}</a>`;
-    })
-    .join('');
+  return `<nav class="header-nav" aria-label="Primary">
+    <a class="nav-link" href="#top">${escapeHtml(ui.nav.home)}</a>
+    <a class="nav-link" href="#about">${escapeHtml(ui.nav.about)}</a>
+    <a class="nav-link" href="#focus">${escapeHtml(ui.nav.focus)}</a>
+    <a class="nav-link" href="#projects">${escapeHtml(ui.nav.projects)}</a>
+    <a class="nav-link" href="#contact">${escapeHtml(ui.nav.contact)}</a>
+  </nav>`;
+}
 
+function renderHeader(locale) {
+  const ui = site.ui[locale];
   return `<header class="site-header">
-    <a class="brand" href="${relativeRoute(site.pageRoutes[pageId][locale], site.pageRoutes.home[locale])}">
+    <a class="brand" href="#top">
       <span class="brand-mark" aria-hidden="true">CM</span>
       <span class="brand-text">
         <span class="brand-name">${escapeHtml(site.brandName)}</span>
         <span class="brand-meta">${escapeHtml(ui.brandMeta)}</span>
       </span>
     </a>
-    <nav class="header-nav" aria-label="Primary">
-      ${nav}
-    </nav>
-    ${renderLanguageSwitcher(locale, pageId)}
+    ${renderAnchorNav(locale)}
+    ${renderLanguageSwitcher(locale)}
   </header>`;
 }
 
-function renderFooter(locale, pageId) {
+function renderFooter(locale) {
   const ui = site.ui[locale];
-  const nav = site.navOrder
-    .map((navId) => {
-      const href = relativeRoute(site.pageRoutes[pageId][locale], site.pageRoutes[navId][locale]);
-      return `<a class="footer-link" href="${href}">${escapeHtml(ui.nav[navId])}</a>`;
-    })
-    .join('');
-
   return `<footer class="site-footer">
     <div class="footer-copy">
       <strong>${escapeHtml(site.brandName)}</strong>
       <p class="footer-text">${escapeHtml(ui.footerBlurb)}</p>
       <div class="footer-meta-row">
-        <nav class="footer-nav" aria-label="Footer">
-          ${nav}
-        </nav>
-        <a class="button-secondary" href="${relativeRoute(site.pageRoutes[pageId][locale], site.pageRoutes.contact[locale])}">${escapeHtml(
-    ui.footerCta
-  )}</a>
+        ${renderAnchorNav(locale)}
       </div>
     </div>
-    ${renderLanguageSwitcher(locale, pageId)}
+    ${renderLanguageSwitcher(locale)}
   </footer>`;
 }
 
-function heroSection(eyebrow, title, intro, currentRoute, primaryRoute, primaryLabel, secondaryRoute, secondaryLabel) {
-  return `<section class="hero">
-    <span class="eyebrow">${escapeHtml(eyebrow)}</span>
+function renderHero(locale, content) {
+  const ui = site.ui[locale];
+  const currentRoute = site.locales[locale].route;
+  const primaryLocale = locale === 'en' ? 'ca' : locale;
+
+  return `<section id="top" class="hero">
+    <span class="eyebrow">${escapeHtml(content.greeting)}</span>
     <div class="hero-copy">
-      <h1>${escapeHtml(stripMarkdown(title))}</h1>
-      <p class="hero-summary">${renderInlineMarkdown(intro)}</p>
+      <h1>${escapeHtml(stripMarkdown(content.heroTitle))}</h1>
+      <p class="hero-summary">${renderInlineMarkdown(content.intro)}</p>
     </div>
     <div class="hero-actions">
-      <a class="button" href="${relativeRoute(currentRoute, primaryRoute)}">${escapeHtml(primaryLabel)}</a>
-      <a class="button-secondary" href="${relativeRoute(currentRoute, secondaryRoute)}">${escapeHtml(secondaryLabel)}</a>
+      <a class="button" href="${relativeAnchorRoute(currentRoute, site.locales[primaryLocale].route, 'contact')}">${escapeHtml(
+    ui.homePrimaryCta
+  )}</a>
+      <a class="button-secondary" href="#projects">${escapeHtml(ui.homeSecondaryCta)}</a>
     </div>
   </section>`;
 }
 
-function ctaPanel(title, body, currentRoute, primaryRoute, primaryLabel, secondaryRoute, secondaryLabel) {
-  return `<section class="cta-panel">
-    <div class="panel-header">
-      <h2>${escapeHtml(title)}</h2>
-      <p>${escapeHtml(body)}</p>
-    </div>
-    <div class="button-row">
-      <a class="button" href="${relativeRoute(currentRoute, primaryRoute)}">${escapeHtml(primaryLabel)}</a>
-      <a class="button-secondary" href="${relativeRoute(currentRoute, secondaryRoute)}">${escapeHtml(secondaryLabel)}</a>
-    </div>
-  </section>`;
-}
-
-function renderHomePage(model, locale) {
+function renderMetaPanels(locale) {
   const ui = site.ui[locale];
-  const content = localizedModel(model, locale);
-  const currentRoute = site.pageRoutes.home[locale];
-  const primaryLocale = 'ca';
-
-  return `<div class="page-grid">
-    ${heroSection(
-      content.greeting,
-      content.heroTitle,
-      content.intro,
-      currentRoute,
-      site.pageRoutes.contact[primaryLocale],
-      ui.homePrimaryCta,
-      site.pageRoutes.projects[locale],
-      ui.homeSecondaryCta
-    )}
-    <div class="grid-two">
-      <section class="panel">
-        <div class="note-card">
-          <span class="kicker">${escapeHtml(ui.homeNoteLabel)}</span>
-          <p>${escapeHtml(ui.homeNoteText)}</p>
-        </div>
-      </section>
-      <section class="panel">
-        <div class="panel-header">
-          <h2>${escapeHtml(ui.currentFocusTitle)}</h2>
-        </div>
-        ${listItems(content.now)}
-      </section>
-    </div>
+  return `<div class="grid-two">
     <section class="panel">
-      <div class="panel-header">
-        <h2>${escapeHtml(ui.projectsTitle)}</h2>
-      </div>
-      <div class="project-grid">
-        ${Object.values(content.projects)
-          .flat()
-          .map(projectCard)
-          .join('')}
+      <div class="note-card">
+        <span class="kicker">${escapeHtml(ui.languageNoteLabel)}</span>
+        <p>${escapeHtml(ui.languageNoteText)}</p>
       </div>
     </section>
-    ${ctaPanel(
-      ui.homeCtaTitle,
-      ui.homeCtaBody,
-      currentRoute,
-      site.pageRoutes.contact[primaryLocale],
-      ui.homePrimaryCta,
-      site.pageRoutes.projects[locale],
-      ui.homeSecondaryCta
-    )}
+    <section class="panel">
+      <div class="note-card">
+        <span class="kicker">${escapeHtml(ui.readmeSourceLabel)}</span>
+        <p>${escapeHtml(ui.readmeSourceText)}</p>
+      </div>
+    </section>
   </div>`;
 }
 
-function renderAboutPage(model, locale) {
+function renderAboutSection(locale, content) {
   const ui = site.ui[locale];
-  const content = localizedModel(model, locale);
-  const currentRoute = site.pageRoutes.about[locale];
-
-  return `<div class="page-grid">
-    ${heroSection(
-      ui.aboutHeroEyebrow,
-      ui.aboutHeroTitle,
-      ui.aboutHeroIntro,
-      currentRoute,
-      site.pageRoutes.projects[locale],
-      ui.aboutPrimaryCta,
-      site.pageRoutes.contact[locale],
-      ui.aboutSecondaryCta
-    )}
-    <div class="grid-two">
-      <section class="panel">
-        <div class="panel-header">
-          <h2>${escapeHtml(ui.aboutSummaryTitle)}</h2>
-          <p>${escapeHtml(ui.aboutSummaryBody)}</p>
-        </div>
-        <p>${renderInlineMarkdown(content.intro)}</p>
-      </section>
-      <section class="panel">
-        <div class="panel-header">
-          <h2>${escapeHtml(ui.areasTitle)}</h2>
-        </div>
-        ${listItems(ui.areasItems)}
-      </section>
+  return `<section id="about" class="panel">
+    <div class="panel-header">
+      <span class="kicker">${escapeHtml(ui.aboutKicker)}</span>
+      <h2>${escapeHtml(ui.aboutTitle)}</h2>
+      <p>${escapeHtml(ui.aboutSummary)}</p>
     </div>
-    <section class="panel">
+    <p>${renderInlineMarkdown(content.intro)}</p>
+  </section>`;
+}
+
+function renderFocusSections(locale, content) {
+  const ui = site.ui[locale];
+  return `<div class="grid-two">
+    <section id="focus" class="panel">
       <div class="panel-header">
-        <h2>${escapeHtml(ui.currentFocusTitle)}</h2>
+        <h2>${escapeHtml(ui.focusTitle)}</h2>
       </div>
       ${listItems(content.now)}
     </section>
     <section class="panel">
       <div class="panel-header">
-        <h2>${escapeHtml(ui.previousWorkTitle)}</h2>
+        <h2>${escapeHtml(ui.previousTitle)}</h2>
       </div>
       ${listItems(content.previously)}
     </section>
-    ${readmeSourcePanel(locale)}
   </div>`;
 }
 
-function renderProjectsPage(model, locale) {
+function renderProjectsSection(locale, content) {
   const ui = site.ui[locale];
-  const content = localizedModel(model, locale);
-  const currentRoute = site.pageRoutes.projects[locale];
-  const projectGroups = Object.entries(content.projects)
+  const groups = Object.entries(content.projects)
     .map(([groupName, items]) => {
       return `<section class="panel">
         <div class="panel-header">
@@ -410,175 +333,146 @@ function renderProjectsPage(model, locale) {
     })
     .join('');
 
-  return `<div class="page-grid">
-    ${heroSection(
-      ui.projectsHeroEyebrow,
-      ui.projectsHeroTitle,
-      ui.projectsHeroIntro,
-      currentRoute,
-      site.pageRoutes.about[locale],
-      ui.projectsPrimaryCta,
-      site.pageRoutes.contact[locale],
-      ui.projectsSecondaryCta
-    )}
-    ${projectGroups}
-    <section class="panel">
-      <div class="panel-header">
-        <h2>${escapeHtml(ui.projectsSummaryTitle)}</h2>
-        <p>${escapeHtml(ui.projectsSummaryBody)}</p>
-      </div>
-      <div class="grid-two">
-        <article class="role-card">
-          <span class="role-meta">${escapeHtml(ui.roleNowLabel)}</span>
-          ${listItems(content.now)}
-        </article>
-        <article class="role-card">
-          <span class="role-meta">${escapeHtml(ui.rolePreviousLabel)}</span>
-          ${listItems(content.previously)}
-        </article>
-      </div>
-    </section>
-    ${readmeSourcePanel(locale)}
-  </div>`;
+  return `<section id="projects" class="panel">
+    <div class="panel-header">
+      <h2>${escapeHtml(ui.projectsTitle)}</h2>
+      <p>${escapeHtml(ui.projectsIntro)}</p>
+    </div>
+  </section>
+  ${groups}`;
 }
 
-function renderContactPage(model, locale) {
+function renderContactSection(locale, content) {
   const ui = site.ui[locale];
-  const content = localizedModel(model, locale);
-  const currentRoute = site.pageRoutes.contact[locale];
-
-  return `<div class="page-grid">
-    ${heroSection(
-      ui.contactHeroEyebrow,
-      ui.contactHeroTitle,
-      ui.contactHeroIntro,
-      currentRoute,
-      site.pageRoutes.projects[locale],
-      ui.contactPrimaryCta,
-      site.pageRoutes.about[locale],
-      ui.contactSecondaryCta
-    )}
+  return `<section id="contact" class="panel">
+    <div class="panel-header">
+      <h2>${escapeHtml(ui.contactTitle)}</h2>
+      <p>${escapeHtml(ui.contactIntro)}</p>
+    </div>
     <div class="grid-two">
+      <div class="link-grid grid-two">
+        <article class="link-card">
+          <h3><a class="project-link" href="${site.twitterProfile}" target="_blank" rel="noreferrer">Twitter/X</a></h3>
+          <p>${renderInlineMarkdown(content.intro)}</p>
+        </article>
+        <article class="link-card">
+          <h3><a class="project-link" href="${site.githubProfile}" target="_blank" rel="noreferrer">GitHub</a></h3>
+          <p>${escapeHtml(ui.githubCardText)}</p>
+        </article>
+      </div>
       <section class="panel">
         <div class="panel-header">
-          <h2>${escapeHtml(ui.contactLinksTitle)}</h2>
-          <p>${escapeHtml(ui.contactLinksIntro)}</p>
-        </div>
-        <div class="link-grid grid-two">
-          <article class="link-card">
-            <h3><a class="project-link" href="https://www.twitter.com/catmcgee/" target="_blank" rel="noreferrer">Twitter/X</a></h3>
-            <p>${renderInlineMarkdown(content.intro)}</p>
-          </article>
-          <article class="link-card">
-            <h3><a class="project-link" href="${site.githubProfile}" target="_blank" rel="noreferrer">GitHub</a></h3>
-            <p>${locale === 'en' ? 'Browse repositories and public code.' : 'Consulta repositoris i codi públic.'}</p>
-          </article>
-        </div>
-      </section>
-      <section class="panel">
-        <div class="panel-header">
-          <h2>${escapeHtml(ui.locationCardTitle)}</h2>
+          <h3>${escapeHtml(ui.locationTitle)}</h3>
         </div>
         ${listItems(content.locations)}
       </section>
     </div>
-    ${readmeSourcePanel(locale)}
-  </div>`;
+  </section>`;
 }
 
-function structuredData(pageId, locale) {
-  const meta = site.pageMeta[pageId];
-  const websiteId = `${site.siteUrl}/#website`;
+function renderCtaPanel(locale) {
+  const ui = site.ui[locale];
+  return `<section class="cta-panel">
+    <div class="panel-header">
+      <h2>${escapeHtml(ui.homeCtaTitle)}</h2>
+      <p>${escapeHtml(ui.homeCtaBody)}</p>
+    </div>
+    ${renderLanguageSwitcher(locale)}
+  </section>`;
+}
 
+function structuredData(locale) {
+  const localeCode = site.locales[locale].code;
   return `<script type="application/ld+json">${JSON.stringify([
     {
       '@context': 'https://schema.org',
       '@type': 'WebSite',
-      '@id': websiteId,
+      '@id': `${site.siteUrl}/#website`,
       name: site.brandName,
       url: site.siteUrl,
-      inLanguage: locale,
+      inLanguage: localeCode,
     },
     {
       '@context': 'https://schema.org',
-      '@type': meta.schemaType,
-      url: absoluteUrl(site.pageRoutes[pageId][locale]),
-      name: meta.title[locale],
-      description: meta.description[locale],
-      inLanguage: locale,
+      '@type': 'ProfilePage',
+      url: absoluteUrl(site.locales[locale].route),
+      name: site.meta[locale].title,
+      description: site.meta[locale].description,
+      inLanguage: localeCode,
       isPartOf: {
-        '@id': websiteId,
+        '@id': `${site.siteUrl}/#website`,
       },
       mainEntity: {
         '@type': 'Person',
         name: site.brandName,
         homeLocation: {
           '@type': 'Place',
-          name: 'Buenos Aires',
+          name: 'Buenos Aires, Argentina',
         },
         worksFor: {
           '@type': 'Organization',
           name: 'Solana Foundation',
         },
-        sameAs: ['https://www.twitter.com/catmcgee/', site.githubProfile],
+        sameAs: [site.twitterProfile, site.githubProfile],
       },
     },
   ])}</script>`;
 }
 
-function renderHead(pageId, locale) {
-  const meta = site.pageMeta[pageId];
-  const route = site.pageRoutes[pageId][locale];
+function renderHead(locale) {
+  const meta = site.meta[locale];
+  const route = site.locales[locale].route;
   const alternates = localeCodes
-    .map((code) => {
-      return `<link rel="alternate" hreflang="${code}" href="${absoluteUrl(site.pageRoutes[pageId][code])}">`;
-    })
-    .concat(`<link rel="alternate" hreflang="x-default" href="${absoluteUrl(site.pageRoutes[pageId].en)}">`)
+    .map((code) => `<link rel="alternate" hreflang="${site.locales[code].code}" href="${absoluteUrl(site.locales[code].route)}">`)
+    .concat(`<link rel="alternate" hreflang="x-default" href="${absoluteUrl(site.locales.en.route)}">`)
     .join('\n    ');
 
   return `<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>${escapeHtml(meta.title[locale])}</title>
-    <meta name="description" content="${escapeHtml(meta.description[locale])}">
+    <title>${escapeHtml(meta.title)}</title>
+    <meta name="description" content="${escapeHtml(meta.description)}">
     <meta name="robots" content="index,follow">
     <meta name="theme-color" content="#11513f">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="${escapeHtml(site.brandName)}">
-    <meta property="og:title" content="${escapeHtml(meta.title[locale])}">
-    <meta property="og:description" content="${escapeHtml(meta.description[locale])}">
+    <meta property="og:title" content="${escapeHtml(meta.title)}">
+    <meta property="og:description" content="${escapeHtml(meta.description)}">
     <meta property="og:url" content="${absoluteUrl(route)}">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="${escapeHtml(meta.title[locale])}">
-    <meta name="twitter:description" content="${escapeHtml(meta.description[locale])}">
+    <meta name="twitter:title" content="${escapeHtml(meta.title)}">
+    <meta name="twitter:description" content="${escapeHtml(meta.description)}">
     <link rel="canonical" href="${absoluteUrl(route)}">
     ${alternates}
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%2311513f'/%3E%3Ctext x='50' y='58' text-anchor='middle' font-family='Arial' font-size='36' fill='white'%3ECM%3C/text%3E%3C/svg%3E">
     <link rel="stylesheet" href="${relativeAsset(route, 'styles.css')}">
-    ${structuredData(pageId, locale)}
+    ${structuredData(locale)}
   </head>`;
 }
 
-function renderPage(pageId, locale, model) {
+function renderPage(locale, model) {
   const ui = site.ui[locale];
-  const renderers = {
-    home: renderHomePage,
-    about: renderAboutPage,
-    projects: renderProjectsPage,
-    contact: renderContactPage,
-  };
+  const content = localizedModel(model, locale);
 
   return `<!DOCTYPE html>
-<html lang="${locale}">
-${renderHead(pageId, locale)}
+<html lang="${site.locales[locale].code}">
+${renderHead(locale)}
 <body>
   <a class="skip-link" href="#content">${escapeHtml(ui.skipLink)}</a>
   <div class="site-shell">
-    ${renderHeader(locale, pageId)}
+    ${renderHeader(locale)}
     <main id="content">
-      ${renderers[pageId](model, locale)}
+      <div class="page-grid">
+        ${renderHero(locale, content)}
+        ${renderMetaPanels(locale)}
+        ${renderAboutSection(locale, content)}
+        ${renderFocusSections(locale, content)}
+        ${renderProjectsSection(locale, content)}
+        ${renderContactSection(locale, content)}
+        ${renderCtaPanel(locale)}
+      </div>
     </main>
-    ${renderFooter(locale, pageId)}
+    ${renderFooter(locale)}
   </div>
 </body>
 </html>`;
@@ -592,24 +486,18 @@ function writeRoute(route, html) {
 
 function buildSitemap() {
   const today = new Date().toISOString().slice(0, 10);
-  const body = pageIds
-    .map((pageId) => {
-      return localeCodes
-        .map((locale) => {
-          const alternates = localeCodes
-            .map((code) => {
-              return `    <xhtml:link rel="alternate" hreflang="${code}" href="${absoluteUrl(site.pageRoutes[pageId][code])}" />`;
-            })
-            .concat(`    <xhtml:link rel="alternate" hreflang="x-default" href="${absoluteUrl(site.pageRoutes[pageId].en)}" />`)
-            .join('\n');
+  const body = localeCodes
+    .map((locale) => {
+      const alternates = localeCodes
+        .map((code) => `    <xhtml:link rel="alternate" hreflang="${site.locales[code].code}" href="${absoluteUrl(site.locales[code].route)}" />`)
+        .concat(`    <xhtml:link rel="alternate" hreflang="x-default" href="${absoluteUrl(site.locales.en.route)}" />`)
+        .join('\n');
 
-          return `  <url>
-    <loc>${absoluteUrl(site.pageRoutes[pageId][locale])}</loc>
+      return `  <url>
+    <loc>${absoluteUrl(site.locales[locale].route)}</loc>
 ${alternates}
     <lastmod>${today}</lastmod>
   </url>`;
-        })
-        .join('\n');
     })
     .join('\n');
 
@@ -634,26 +522,19 @@ Sitemap: ${site.siteUrl}/sitemap.xml
   );
 }
 
-function buildCname() {
-  fs.writeFileSync(path.join(outRoot, 'CNAME'), `${site.customDomain}\n`);
-}
-
 function buildSite() {
   const readme = fs.readFileSync(path.join(outRoot, 'README.md'), 'utf8');
   const model = parseReadme(readme);
   validateReadmeModel(model);
 
-  for (const locale of localeCodes) {
-    for (const pageId of pageIds) {
-      writeRoute(site.pageRoutes[pageId][locale], renderPage(pageId, locale, model));
-    }
-  }
+  localeCodes.forEach((locale) => {
+    writeRoute(site.locales[locale].route, renderPage(locale, model));
+  });
 
   buildSitemap();
   buildRobots();
-  buildCname();
 }
 
 buildSite();
 
-console.log(`Generated ${pageIds.length * localeCodes.length} pages from README.md.`);
+console.log(`Generated ${localeCodes.length} localized one-page profiles from README.md.`);

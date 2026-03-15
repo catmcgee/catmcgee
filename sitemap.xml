@@ -4,6 +4,7 @@
     <loc>https://catmcgee.me/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://catmcgee.me/" />
     <xhtml:link rel="alternate" hreflang="ca" href="https://catmcgee.me/ca/" />
+    <xhtml:link rel="alternate" hreflang="es-AR" href="https://catmcgee.me/es/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://catmcgee.me/" />
     <lastmod>2026-03-15</lastmod>
   </url>
@@ -11,49 +12,16 @@
     <loc>https://catmcgee.me/ca/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://catmcgee.me/" />
     <xhtml:link rel="alternate" hreflang="ca" href="https://catmcgee.me/ca/" />
+    <xhtml:link rel="alternate" hreflang="es-AR" href="https://catmcgee.me/es/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://catmcgee.me/" />
     <lastmod>2026-03-15</lastmod>
   </url>
   <url>
-    <loc>https://catmcgee.me/about/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://catmcgee.me/about/" />
-    <xhtml:link rel="alternate" hreflang="ca" href="https://catmcgee.me/ca/about/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://catmcgee.me/about/" />
-    <lastmod>2026-03-15</lastmod>
-  </url>
-  <url>
-    <loc>https://catmcgee.me/ca/about/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://catmcgee.me/about/" />
-    <xhtml:link rel="alternate" hreflang="ca" href="https://catmcgee.me/ca/about/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://catmcgee.me/about/" />
-    <lastmod>2026-03-15</lastmod>
-  </url>
-  <url>
-    <loc>https://catmcgee.me/projects/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://catmcgee.me/projects/" />
-    <xhtml:link rel="alternate" hreflang="ca" href="https://catmcgee.me/ca/projects/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://catmcgee.me/projects/" />
-    <lastmod>2026-03-15</lastmod>
-  </url>
-  <url>
-    <loc>https://catmcgee.me/ca/projects/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://catmcgee.me/projects/" />
-    <xhtml:link rel="alternate" hreflang="ca" href="https://catmcgee.me/ca/projects/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://catmcgee.me/projects/" />
-    <lastmod>2026-03-15</lastmod>
-  </url>
-  <url>
-    <loc>https://catmcgee.me/contact/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://catmcgee.me/contact/" />
-    <xhtml:link rel="alternate" hreflang="ca" href="https://catmcgee.me/ca/contact/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://catmcgee.me/contact/" />
-    <lastmod>2026-03-15</lastmod>
-  </url>
-  <url>
-    <loc>https://catmcgee.me/ca/contact/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://catmcgee.me/contact/" />
-    <xhtml:link rel="alternate" hreflang="ca" href="https://catmcgee.me/ca/contact/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://catmcgee.me/contact/" />
+    <loc>https://catmcgee.me/es/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://catmcgee.me/" />
+    <xhtml:link rel="alternate" hreflang="ca" href="https://catmcgee.me/ca/" />
+    <xhtml:link rel="alternate" hreflang="es-AR" href="https://catmcgee.me/es/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://catmcgee.me/" />
     <lastmod>2026-03-15</lastmod>
   </url>
 </urlset>

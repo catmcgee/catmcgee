@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="72" viewBox="0 0 96 72" role="img" aria-labelledby="title desc">
+  <title id="title">Catalan flag</title>
+  <desc id="desc">A stylized Catalan senyera flag with yellow and red horizontal stripes.</desc>
+  <defs>
+    <linearGradient id="poleLight" x1="0%" x2="100%">
+      <stop offset="0%" stop-color="#f7efe0"/>
+      <stop offset="100%" stop-color="#d8cab4"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="160%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#181513" flood-opacity="0.18"/>
+    </filter>
+    <clipPath id="flagShape">
+      <path d="M18 10C31 7 45 14 60 10C74 6 84 11 92 14V58C82 54 72 49 60 52C45 55 31 48 18 52V10Z"/>
+    </clipPath>
+  </defs>
+  <g filter="url(#shadow)">
+    <rect x="10" y="8" width="6" height="56" rx="3" fill="url(#poleLight)"/>
+    <g clip-path="url(#flagShape)">
+      <rect x="18" y="10" width="74" height="42" fill="#f8d147"/>
+      <rect x="18" y="14" width="74" height="6" fill="#bb1e28"/>
+      <rect x="18" y="24" width="74" height="6" fill="#bb1e28"/>
+      <rect x="18" y="34" width="74" height="6" fill="#bb1e28"/>
+      <rect x="18" y="44" width="74" height="6" fill="#bb1e28"/>
+    </g>
+    <path d="M18 10C31 7 45 14 60 10C74 6 84 11 92 14V58C82 54 72 49 60 52C45 55 31 48 18 52V10Z" fill="none" stroke="#a46b00" stroke-opacity="0.18"/>
+  </g>
+</svg>
