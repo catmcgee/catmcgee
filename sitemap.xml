@@ -5,6 +5,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://catmcgee.me/" />
     <xhtml:link rel="alternate" hreflang="ca" href="https://catmcgee.me/ca/" />
     <xhtml:link rel="alternate" hreflang="es-AR" href="https://catmcgee.me/es/" />
+    <xhtml:link rel="alternate" hreflang="ga" href="https://catmcgee.me/ga/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://catmcgee.me/" />
     <lastmod>2026-03-15</lastmod>
   </url>
@@ -13,6 +14,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://catmcgee.me/" />
     <xhtml:link rel="alternate" hreflang="ca" href="https://catmcgee.me/ca/" />
     <xhtml:link rel="alternate" hreflang="es-AR" href="https://catmcgee.me/es/" />
+    <xhtml:link rel="alternate" hreflang="ga" href="https://catmcgee.me/ga/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://catmcgee.me/" />
     <lastmod>2026-03-15</lastmod>
   </url>
@@ -21,6 +23,16 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://catmcgee.me/" />
     <xhtml:link rel="alternate" hreflang="ca" href="https://catmcgee.me/ca/" />
     <xhtml:link rel="alternate" hreflang="es-AR" href="https://catmcgee.me/es/" />
+    <xhtml:link rel="alternate" hreflang="ga" href="https://catmcgee.me/ga/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://catmcgee.me/" />
+    <lastmod>2026-03-15</lastmod>
+  </url>
+  <url>
+    <loc>https://catmcgee.me/ga/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://catmcgee.me/" />
+    <xhtml:link rel="alternate" hreflang="ca" href="https://catmcgee.me/ca/" />
+    <xhtml:link rel="alternate" hreflang="es-AR" href="https://catmcgee.me/es/" />
+    <xhtml:link rel="alternate" hreflang="ga" href="https://catmcgee.me/ga/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://catmcgee.me/" />
     <lastmod>2026-03-15</lastmod>
   </url>

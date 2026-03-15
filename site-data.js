@@ -23,6 +23,12 @@ const site = {
       nativeLabel: 'Español',
       route: '/es/',
     },
+    ga: {
+      code: 'ga',
+      switcherLabel: 'GA',
+      nativeLabel: 'Gaeilge',
+      route: '/ga/',
+    },
   },
   meta: {
     en: {
@@ -40,6 +46,11 @@ const site = {
       description:
         'Sitio personal de Cat McGee, generado a partir del README del perfil y ampliado como perfil público multilingüe en español de Argentina.',
     },
+    ga: {
+      title: 'Cat McGee | Developer relations, príobháideachas agus tionscadail',
+      description:
+        'Suíomh pearsanta Cat McGee, ginte ón README próifíle agus leathnaithe ina phróifíl phoiblí ilteangach.',
+    },
   },
   ui: {
     en: {
@@ -55,15 +66,15 @@ const site = {
       brandMeta: 'Developer relations • Privacy • Crypto',
       languageNoteLabel: 'Languages',
       languageNoteText:
-        'Catalan and Spanish are now first-class versions of this site, while English still follows the README in this repository.',
+        'Catalan, Argentine Spanish, and Irish are now first-class versions of this site, while English still follows the README in this repository.',
       readmeSourceLabel: 'README source',
       readmeSourceText:
         'The English source content still comes from the public profile README, so updates there continue to feed the site build.',
       homePrimaryCta: 'Contact in Catalan',
       homeSecondaryCta: 'Browse projects',
-      homeCtaTitle: 'Three languages, one profile',
+      homeCtaTitle: 'Four languages, one profile',
       homeCtaBody:
-        'Use the switcher to move between English, Catalan, and Spanish versions of the same public profile.',
+        'Use the switcher to move between English, Catalan, Argentine Spanish, and Irish versions of the same public profile.',
       aboutKicker: 'Profile',
       aboutTitle: 'Background, principles, and work in public.',
       aboutSummary:
@@ -83,7 +94,7 @@ const site = {
       locationTitle: 'Current location notes',
       githubCardText: 'Browse repositories and public code.',
       footerBlurb:
-        'Personal site of Cat McGee, generated from the profile README with Catalan and Spanish support.',
+        'Personal site of Cat McGee, generated from the profile README with Catalan, Argentine Spanish, and Irish support.',
     },
     ca: {
       skipLink: 'Salta al contingut',
@@ -98,15 +109,15 @@ const site = {
       brandMeta: 'Developer relations • Privadesa • Cripto',
       languageNoteLabel: 'Idiomes',
       languageNoteText:
-        'El català i el castellà ja són versions principals d’aquesta web, mentre que l’anglès continua seguint el README d’aquest repositori.',
+        'El català, el castellà de l’Argentina i el gaèlic irlandès ja són versions principals d’aquesta web, mentre que l’anglès continua seguint el README d’aquest repositori.',
       readmeSourceLabel: 'README',
       readmeSourceText:
         'La font de contingut en anglès continua sent el README públic del perfil, de manera que els canvis allà també alimenten la build de la web.',
       homePrimaryCta: 'Contacta en català',
       homeSecondaryCta: 'Veure projectes',
-      homeCtaTitle: 'Tres llengües, un sol perfil',
+      homeCtaTitle: 'Quatre llengües, un sol perfil',
       homeCtaBody:
-        'Fes servir el selector per moure’t entre les versions en anglès, català i castellà del mateix perfil públic.',
+        'Fes servir el selector per moure’t entre les versions en anglès, català, castellà de l’Argentina i irlandès del mateix perfil públic.',
       aboutKicker: 'Perfil',
       aboutTitle: 'Trajectòria, principis i feina en públic.',
       aboutSummary:
@@ -126,7 +137,7 @@ const site = {
       locationTitle: 'Notes de localització actuals',
       githubCardText: 'Consulta repositoris i codi públic.',
       footerBlurb:
-        'Web personal de la Cat McGee, generada a partir del README del perfil amb suport en català i castellà.',
+        'Web personal de la Cat McGee, generada a partir del README del perfil amb suport en català, castellà de l’Argentina i irlandès.',
     },
     es: {
       skipLink: 'Saltar al contenido',
@@ -141,15 +152,15 @@ const site = {
       brandMeta: 'Developer relations • Privacidad • Cripto',
       languageNoteLabel: 'Idiomas',
       languageNoteText:
-        'Catalán y español de Argentina ya son versiones principales de este sitio, mientras que el inglés sigue saliendo del README de este repositorio.',
+        'Catalán, español de Argentina e irlandés ya son versiones principales de este sitio, mientras que el inglés sigue saliendo del README de este repositorio.',
       readmeSourceLabel: 'README',
       readmeSourceText:
         'La fuente de contenido en inglés sigue siendo el README público del perfil, así que los cambios allí también alimentan la build del sitio.',
       homePrimaryCta: 'Contactame en español',
       homeSecondaryCta: 'Mirá proyectos',
-      homeCtaTitle: 'Tres idiomas, un solo perfil',
+      homeCtaTitle: 'Cuatro idiomas, un solo perfil',
       homeCtaBody:
-        'Usá el selector para pasar entre las versiones en inglés, catalán y español de Argentina del mismo perfil público.',
+        'Usá el selector para pasar entre las versiones en inglés, catalán, español de Argentina e irlandés del mismo perfil público.',
       aboutKicker: 'Perfil',
       aboutTitle: 'Trayectoria, principios y trabajo en público.',
       aboutSummary:
@@ -169,7 +180,50 @@ const site = {
       locationTitle: 'Notas de ubicación actual',
       githubCardText: 'Explorá repositorios y código público.',
       footerBlurb:
-        'Sitio personal de Cat McGee, generado a partir del README del perfil con soporte en catalán y español de Argentina.',
+        'Sitio personal de Cat McGee, generado a partir del README del perfil con soporte en catalán, español de Argentina e irlandés.',
+    },
+    ga: {
+      skipLink: 'Léim chuig an ábhar',
+      languageLabel: 'Teanga',
+      nav: {
+        home: 'Barr',
+        about: 'Maidir liom',
+        focus: 'Anois',
+        projects: 'Tionscadail',
+        contact: 'Teagmháil',
+      },
+      brandMeta: 'Developer relations • Príobháideachas • Crypto',
+      languageNoteLabel: 'Teangacha',
+      languageNoteText:
+        'Tá Catalóinis, Spáinnis na hAirgintíne, agus Gaeilge anois mar phríomhtheangacha ar an suíomh seo, agus leanann an Béarla an README sa stór seo.',
+      readmeSourceLabel: 'README',
+      readmeSourceText:
+        'Tagann an bunábhar Béarla fós ón README poiblí próifíle, mar sin leanann athruithe ansin ar aghaidh isteach i dtógáil an tsuímh.',
+      homePrimaryCta: 'Déan teagmháil i nGaeilge',
+      homeSecondaryCta: 'Féach ar na tionscadail',
+      homeCtaTitle: 'Ceithre theanga, próifíl amháin',
+      homeCtaBody:
+        'Úsáid an lascaire chun bogadh idir an Béarla, an Chatalóinis, Spáinnis na hAirgintíne, agus an Ghaeilge ar an bpróifíl phoiblí chéanna.',
+      aboutKicker: 'Próifíl',
+      aboutTitle: 'Cúlra, prionsabail, agus obair go poiblí.',
+      aboutSummary:
+        'Fanann an leathanach próifíle seo dílis don ábhar sa README: obair reatha, obair roimhe seo, tionscadail phoiblí, agus bealaí poiblí teagmhála.',
+      focusTitle: 'Fócas faoi láthair',
+      previousTitle: 'Roimhe seo',
+      projectsTitle: 'Tionscadail',
+      projectGroups: {
+        Crypto: 'Crypto',
+        'Random fun': 'Turgnaimh eile',
+      },
+      projectsIntro:
+        'Punann bheag d’obair phoiblí agus de thurgnaimh, tógtha go díreach ón liosta tionscadal sa README.',
+      contactTitle: 'Teagmháil phoiblí',
+      contactIntro:
+        'Is é Twitter/X an bealach teagmhála poiblí is soiléire sa README. Is é GitHub an áit is fearr chun an cód agus stair na dtionscadal a fheiceáil.',
+      locationTitle: 'Nótaí faoin áit ina bhfuilim anois',
+      githubCardText: 'Brabhsáil stórtha agus cód poiblí.',
+      footerBlurb:
+        'Suíomh pearsanta Cat McGee, ginte ón README próifíle le tacaíocht don Chatalóinis, do Spáinnis na hAirgintíne, agus don Ghaeilge.',
     },
   },
   readmeSnapshot: {
@@ -238,6 +292,38 @@ const site = {
       locations: [
         'Ahora: Buenos Aires',
         'Mayo: Shanghái por [the mu](https://x.com/themu_xyz/status/2013994255094837492)',
+      ],
+    },
+    ga: {
+      greeting: 'Dia dhuit 👋',
+      heroTitle: 'Is innealtóir developer relations as Éirinn mé agus tá mé lonnaithe i Buenos Aires',
+      intro:
+        'Tá suim agam domhan digiteach a thógáil bunaithe ar phrionsabail a bhfuil tábhacht leo lasmuigh den scáileán freisin: úinéireacht, pobal, iarmhairt shóisialta, príobháideachas, agus muinín. Lean mé ar 🐦 [Twitter/X](https://www.twitter.com/catmcgee/).',
+      now: [
+        'Innealtóir Developer Relations ag Solana Foundation, dírithe ar phríobháideachas agus ar fheabhas a chur ar devex do ghníomhairí',
+        'Tá suim agam in IS, i bpríobháideachas, i gcripteagrafaíocht, agus in aon teicneolaíocht a dhéanann an domhan digiteach níos daonna',
+      ],
+      previously: [
+        '💚 Innealtóir Developer Relations ag [Aztec](https://aztec.network/)',
+        '👻 Innealtóir ag [Aave](https://aave.com/)',
+        '✨ Bhunaigh mé [Hype DevRel](https://hy.pe/devrel)',
+        '🟡 Dev growth council ag [Mode](https://mode.network)',
+        '🧭 Roimh an saol cripte: innealtóireacht ag [Coursedog](https://www.coursedog.com/), [Unit4](https://www.unit4.com/) agus [Evenset](https://evenset.com/), chomh maith le roinnt obair chonarthach eile',
+      ],
+      projects: {
+        Crypto: [
+          '[Solana confidential Transfers explorer](https://github.com/catmcgee/confidential-transfers-explorer)',
+          '[Solana mixer](https://github.com/catmcgee/noir-solana-private-transfers)',
+          '[Plata Mia](https://github.com/catmcgee/plata-mia) - Seoltaí stealth tras-slabhra',
+        ],
+        'Random fun': [
+          '[Reality check](https://realitycheck.mcgee.cat/) - Léamha réalteolaíochta ó chéadphrionsabail do dhaoine nach gcreideann san réalteolaíocht',
+          'Beekeeper (bees in TEEs) - Gníomhairí IS a chur i mbun na gcodanna leadránacha den obair go huathrialach agus príobháideachas á choinneáil acu',
+        ],
+      },
+      locations: [
+        'Anois: Buenos Aires',
+        'Bealtaine: Shanghai do [the mu](https://x.com/themu_xyz/status/2013994255094837492)',
       ],
     },
   },
