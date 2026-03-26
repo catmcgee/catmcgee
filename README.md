@@ -23,7 +23,7 @@ I care about building a digital world based on the principles of our irl world. 
 
 ##### Random fun
 - [Reality check](https://realitycheck.mcgee.cat/) - First-principles astrology readings for people who don't believe in astrology
-- Beekeeper (bees in TEEs) - Get AI agents to autonomously do the boring parts of your work, while maintaining privacy
+- Beekeeper (bees in TEEs) - Enterprise software to get AI agents to autonomously do the boring parts of your work, while maintaining full control privacy
 
 #### Find me irl
 - Now: Buenos Aires
