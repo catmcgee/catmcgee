@@ -5,7 +5,7 @@
 I care about building a digital world based on the principles of our irl world. Ownership, community, social consequence, privacy, and trust. Follow my journey on 🐦 [Twitter/X](https://www.twitter.com/catmcgee/).
 
 #### NOW
-- Developer Relations Engineer at Solana Foundation, focused on privacy and improving agent devex
+- Developer Relations Engineer at Solana Foundation, focused on privacy and devex
 - Interested in AI, privacy, cryptography, and anything making technology more humane
 
 #### PREVIOUSLY
