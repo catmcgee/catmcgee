@@ -1,5 +1,5 @@
 const site = {
-  siteUrl: 'https://catmcgee.me',
+  siteUrl: 'https://www.mcgee.cat',
   brandName: 'Cat McGee',
   githubProfile: 'https://github.com/catmcgee',
   twitterProfile: 'https://www.twitter.com/catmcgee/',

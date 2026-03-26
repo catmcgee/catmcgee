@@ -1,0 +1,42 @@
+name: Translate README changes
+
+on:
+  push:
+    branches: ["master"]
+    paths:
+      - "README.md"
+
+permissions:
+  contents: write
+
+jobs:
+  translate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+
+      - name: Install Anthropic SDK
+        run: npm install @anthropic-ai/sdk
+
+      - name: Update translations
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: node .github/scripts/translate.js
+
+      - name: Verify build still works
+        run: node tohtml.js
+
+      - name: Commit updated translations
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add site-data.js
+          git diff --staged --quiet && echo "No translation changes" && exit 0
+          git commit -m "Auto-translate README changes to ca, es, ga"
+          git push

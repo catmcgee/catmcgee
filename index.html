@@ -10,21 +10,52 @@
     <meta property="og:site_name" content="Cat McGee">
     <meta property="og:title" content="Cat McGee | Developer relations, privacy, and projects">
     <meta property="og:description" content="Personal site of Cat McGee, generated from the profile README and expanded into a multilingual public profile site.">
-    <meta property="og:url" content="https://catmcgee.me/">
+    <meta property="og:url" content="https://www.mcgee.cat/">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Cat McGee | Developer relations, privacy, and projects">
     <meta name="twitter:description" content="Personal site of Cat McGee, generated from the profile README and expanded into a multilingual public profile site.">
-    <link rel="canonical" href="https://catmcgee.me/">
-    <link rel="alternate" hreflang="en" href="https://catmcgee.me/">
-    <link rel="alternate" hreflang="ca" href="https://catmcgee.me/ca/">
-    <link rel="alternate" hreflang="es-AR" href="https://catmcgee.me/es/">
-    <link rel="alternate" hreflang="ga" href="https://catmcgee.me/ga/">
-    <link rel="alternate" hreflang="x-default" href="https://catmcgee.me/">
+    <link rel="canonical" href="https://www.mcgee.cat/">
+    <link rel="alternate" hreflang="en" href="https://www.mcgee.cat/">
+    <link rel="alternate" hreflang="ca" href="https://www.mcgee.cat/ca/">
+    <link rel="alternate" hreflang="es-AR" href="https://www.mcgee.cat/es/">
+    <link rel="alternate" hreflang="ga" href="https://www.mcgee.cat/ga/">
+    <link rel="alternate" hreflang="x-default" href="https://www.mcgee.cat/">
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%2311513f'/%3E%3Ctext x='50' y='58' text-anchor='middle' font-family='Arial' font-size='36' fill='white'%3ECM%3C/text%3E%3C/svg%3E">
     <link rel="stylesheet" href="styles.css">
-    <script type="application/ld+json">[{"@context":"https://schema.org","@type":"WebSite","@id":"https://catmcgee.me/#website","name":"Cat McGee","url":"https://catmcgee.me","inLanguage":"en"},{"@context":"https://schema.org","@type":"ProfilePage","url":"https://catmcgee.me/","name":"Cat McGee | Developer relations, privacy, and projects","description":"Personal site of Cat McGee, generated from the profile README and expanded into a multilingual public profile site.","inLanguage":"en","isPartOf":{"@id":"https://catmcgee.me/#website"},"mainEntity":{"@type":"Person","name":"Cat McGee","homeLocation":{"@type":"Place","name":"Buenos Aires, Argentina"},"worksFor":{"@type":"Organization","name":"Solana Foundation"},"sameAs":["https://www.twitter.com/catmcgee/","https://github.com/catmcgee"]}}]</script>
+    <script type="application/ld+json">[{"@context":"https://schema.org","@type":"WebSite","@id":"https://www.mcgee.cat/#website","name":"Cat McGee","url":"https://www.mcgee.cat","inLanguage":"en"},{"@context":"https://schema.org","@type":"ProfilePage","url":"https://www.mcgee.cat/","name":"Cat McGee | Developer relations, privacy, and projects","description":"Personal site of Cat McGee, generated from the profile README and expanded into a multilingual public profile site.","inLanguage":"en","isPartOf":{"@id":"https://www.mcgee.cat/#website"},"mainEntity":{"@type":"Person","name":"Cat McGee","homeLocation":{"@type":"Place","name":"Buenos Aires, Argentina"},"worksFor":{"@type":"Organization","name":"Solana Foundation"},"sameAs":["https://www.twitter.com/catmcgee/","https://github.com/catmcgee"]}}]</script>
   </head>
 <body>
+  <script>
+(function() {
+  if (sessionStorage.getItem('locale-chosen')) return;
+  try {
+    var tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+    var lang = (navigator.language || '').toLowerCase();
+    var locale = null;
+    // Catalan: Spain timezones + Catalan language preference
+    if (lang.startsWith('ca') || tz === 'Europe/Madrid' || tz === 'Atlantic/Canary') {
+      locale = '/ca/';
+    // Argentine Spanish: Latin America timezones
+    } else if (tz.startsWith('America/Argentina') || tz.startsWith('America/Buenos_Aires')
+      || tz.startsWith('America/Mexico') || tz.startsWith('America/Bogota')
+      || tz.startsWith('America/Lima') || tz.startsWith('America/Santiago')
+      || tz.startsWith('America/Caracas') || tz.startsWith('America/Montevideo')
+      || tz.startsWith('America/Asuncion') || tz.startsWith('America/La_Paz')
+      || tz.startsWith('America/Guayaquil') || tz.startsWith('America/Costa_Rica')
+      || tz.startsWith('America/Panama') || tz.startsWith('America/Guatemala')
+      || tz.startsWith('America/El_Salvador') || tz.startsWith('America/Tegucigalpa')
+      || tz.startsWith('America/Managua') || tz.startsWith('America/Havana')
+      || tz.startsWith('America/Santo_Domingo') || tz.startsWith('America/Puerto_Rico')) {
+      locale = '/es/';
+    }
+    // Ireland and everywhere else: English (no redirect needed)
+    if (locale) {
+      sessionStorage.setItem('locale-chosen', '1');
+      window.location.replace(locale);
+    }
+  } catch(e) {}
+})();
+</script>
   <div class="page">
     <nav class="language-switcher" aria-label="Language"><a class="lang-link active" href="./" lang="en" hreflang="en" aria-current="page">EN</a><span class="lang-divider">/</span><a class="lang-link" href="ca/" lang="ca" hreflang="ca"><img class="lang-flag" src="assets/catalan-flag.svg" alt="" aria-hidden="true">CA</a><span class="lang-divider">/</span><a class="lang-link" href="es/" lang="es-AR" hreflang="es-AR">🇦🇷 ES</a><span class="lang-divider">/</span><a class="lang-link" href="ga/" lang="ga" hreflang="ga">🇮🇪 GA</a></nav>
     <article class="markdown-body">
@@ -32,7 +63,7 @@
 <h4>I&#39;m a developer relations engineer from Ireland ☘️, making my home in Buenos Aires</h4>
 <p>I care about building a digital world based on the principles of our irl world. Ownership, community, social consequence, privacy, and trust. Follow my journey on 🐦 <a href="https://www.twitter.com/catmcgee/" target="_blank" rel="noreferrer">Twitter/X</a>.</p>
 <h4>NOW</h4>
-<ul><li>Developer Relations Engineer at Solana Foundation, focused on privacy and improving agent devex</li><li>Interested in AI, privacy, cryptography, and anything making technology more humane</li></ul>
+<ul><li>Developer Relations Engineer at Solana Foundation, focused on privacy and devex</li><li>Interested in AI, privacy, cryptography, and anything making technology more humane</li></ul>
 <h4>PREVIOUSLY</h4>
 <ul><li>💚 Developer Relations engineer @ <a href="https://aztec.network/" target="_blank" rel="noreferrer">Aztec</a></li><li>👻 Eng @ <a href="https://aave.com/" target="_blank" rel="noreferrer">Aave</a></li><li>✨ Built <a href="https://hy.pe/devrel" target="_blank" rel="noreferrer">Hype DevRel</a></li><li>🟡 Dev growth council at <a href="https://mode.network" target="_blank" rel="noreferrer">Mode</a></li><li>🧭 Before crypto: eng @ <a href="https://www.coursedog.com/" target="_blank" rel="noreferrer">Coursedog</a>, <a href="https://www.unit4.com/" target="_blank" rel="noreferrer">Unit4</a>, <a href="https://evenset.com/" target="_blank" rel="noreferrer">Evenset</a> + random other things</li></ul>
 <h4>PROJECTS</h4>

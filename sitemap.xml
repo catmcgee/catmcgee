@@ -1,39 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://catmcgee.me/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://catmcgee.me/" />
-    <xhtml:link rel="alternate" hreflang="ca" href="https://catmcgee.me/ca/" />
-    <xhtml:link rel="alternate" hreflang="es-AR" href="https://catmcgee.me/es/" />
-    <xhtml:link rel="alternate" hreflang="ga" href="https://catmcgee.me/ga/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://catmcgee.me/" />
-    <lastmod>2026-03-15</lastmod>
+    <loc>https://www.mcgee.cat/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mcgee.cat/" />
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.mcgee.cat/ca/" />
+    <xhtml:link rel="alternate" hreflang="es-AR" href="https://www.mcgee.cat/es/" />
+    <xhtml:link rel="alternate" hreflang="ga" href="https://www.mcgee.cat/ga/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mcgee.cat/" />
+    <lastmod>2026-03-26</lastmod>
   </url>
   <url>
-    <loc>https://catmcgee.me/ca/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://catmcgee.me/" />
-    <xhtml:link rel="alternate" hreflang="ca" href="https://catmcgee.me/ca/" />
-    <xhtml:link rel="alternate" hreflang="es-AR" href="https://catmcgee.me/es/" />
-    <xhtml:link rel="alternate" hreflang="ga" href="https://catmcgee.me/ga/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://catmcgee.me/" />
-    <lastmod>2026-03-15</lastmod>
+    <loc>https://www.mcgee.cat/ca/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mcgee.cat/" />
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.mcgee.cat/ca/" />
+    <xhtml:link rel="alternate" hreflang="es-AR" href="https://www.mcgee.cat/es/" />
+    <xhtml:link rel="alternate" hreflang="ga" href="https://www.mcgee.cat/ga/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mcgee.cat/" />
+    <lastmod>2026-03-26</lastmod>
   </url>
   <url>
-    <loc>https://catmcgee.me/es/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://catmcgee.me/" />
-    <xhtml:link rel="alternate" hreflang="ca" href="https://catmcgee.me/ca/" />
-    <xhtml:link rel="alternate" hreflang="es-AR" href="https://catmcgee.me/es/" />
-    <xhtml:link rel="alternate" hreflang="ga" href="https://catmcgee.me/ga/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://catmcgee.me/" />
-    <lastmod>2026-03-15</lastmod>
+    <loc>https://www.mcgee.cat/es/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mcgee.cat/" />
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.mcgee.cat/ca/" />
+    <xhtml:link rel="alternate" hreflang="es-AR" href="https://www.mcgee.cat/es/" />
+    <xhtml:link rel="alternate" hreflang="ga" href="https://www.mcgee.cat/ga/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mcgee.cat/" />
+    <lastmod>2026-03-26</lastmod>
   </url>
   <url>
-    <loc>https://catmcgee.me/ga/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://catmcgee.me/" />
-    <xhtml:link rel="alternate" hreflang="ca" href="https://catmcgee.me/ca/" />
-    <xhtml:link rel="alternate" hreflang="es-AR" href="https://catmcgee.me/es/" />
-    <xhtml:link rel="alternate" hreflang="ga" href="https://catmcgee.me/ga/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://catmcgee.me/" />
-    <lastmod>2026-03-15</lastmod>
+    <loc>https://www.mcgee.cat/ga/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.mcgee.cat/" />
+    <xhtml:link rel="alternate" hreflang="ca" href="https://www.mcgee.cat/ca/" />
+    <xhtml:link rel="alternate" hreflang="es-AR" href="https://www.mcgee.cat/es/" />
+    <xhtml:link rel="alternate" hreflang="ga" href="https://www.mcgee.cat/ga/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.mcgee.cat/" />
+    <lastmod>2026-03-26</lastmod>
   </url>
 </urlset>

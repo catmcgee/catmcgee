@@ -340,11 +340,47 @@ function renderHead(locale) {
   </head>`;
 }
 
+function geoRedirectScript() {
+  return `<script>
+(function() {
+  if (sessionStorage.getItem('locale-chosen')) return;
+  try {
+    var tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+    var lang = (navigator.language || '').toLowerCase();
+    var locale = null;
+    // Catalan: Spain timezones + Catalan language preference
+    if (lang.startsWith('ca') || tz === 'Europe/Madrid' || tz === 'Atlantic/Canary') {
+      locale = '/ca/';
+    // Argentine Spanish: Latin America timezones
+    } else if (tz.startsWith('America/Argentina') || tz.startsWith('America/Buenos_Aires')
+      || tz.startsWith('America/Mexico') || tz.startsWith('America/Bogota')
+      || tz.startsWith('America/Lima') || tz.startsWith('America/Santiago')
+      || tz.startsWith('America/Caracas') || tz.startsWith('America/Montevideo')
+      || tz.startsWith('America/Asuncion') || tz.startsWith('America/La_Paz')
+      || tz.startsWith('America/Guayaquil') || tz.startsWith('America/Costa_Rica')
+      || tz.startsWith('America/Panama') || tz.startsWith('America/Guatemala')
+      || tz.startsWith('America/El_Salvador') || tz.startsWith('America/Tegucigalpa')
+      || tz.startsWith('America/Managua') || tz.startsWith('America/Havana')
+      || tz.startsWith('America/Santo_Domingo') || tz.startsWith('America/Puerto_Rico')) {
+      locale = '/es/';
+    }
+    // Ireland and everywhere else: English (no redirect needed)
+    if (locale) {
+      sessionStorage.setItem('locale-chosen', '1');
+      window.location.replace(locale);
+    }
+  } catch(e) {}
+})();
+</script>`;
+}
+
 function renderPage(locale, markdown) {
+  const geoScript = locale === 'en' ? geoRedirectScript() : '';
   return `<!DOCTYPE html>
 <html lang="${site.locales[locale].code}">
 ${renderHead(locale)}
 <body>
+  ${geoScript}
   ${renderContent(locale, markdown)}
 </body>
 </html>`;
