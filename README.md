@@ -33,4 +33,5 @@ I care about building a digital world based on the principles of our irl world. 
   
 #### Find me irl
 - Now: Buenos Aires
-- May: Shanghai for [the mu](https://x.com/themu_xyz/status/2013994255094837492)
+- June: NYC for ETHConf
+- November: India for Devcon & London for Breakpoint
