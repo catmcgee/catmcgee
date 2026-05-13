@@ -21,12 +21,12 @@ I care about building a digital world based on the principles of our irl world. 
 - [Solana mixer](https://github.com/catmcgee/noir-solana-private-transfers)
 - [Plata Mia](https://github.com/catmcgee/plata-mia) - Cross-chain stealth addresses
 
+##### Artificial intelligence
+- Toy models of superposition replication
+
 ##### Random fun
 - [Reality check](https://realitycheck.mcgee.cat/) - First-principles astrology readings for people who don't believe in astrology
 - [How much Toly code](https://howmuchtolycode.com/) - A GitHub action that runs each day and tracks how many lines of Solana's cofounder code is left in the repo (with a graph)
-
-##### AI
-- Toy models of superposition replication
 
 #### WRITINGS
 - [Something else built the world you live in](https://x.com/catmcgee/status/2054358701310382511?s=20) - Why technology is an environment and how it affects our evolution
