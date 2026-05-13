@@ -23,8 +23,14 @@ I care about building a digital world based on the principles of our irl world. 
 
 ##### Random fun
 - [Reality check](https://realitycheck.mcgee.cat/) - First-principles astrology readings for people who don't believe in astrology
-- Beekeeper (bees in TEEs) - Enterprise software to get AI agents to autonomously do the boring parts of your work, while maintaining full control privacy
+- [How much Toly code](https://howmuchtolycode.com/) - A GitHub action that runs each day and tracks how many lines of Solana's cofounder code is left in the repo (with a graph)
 
+##### AI
+- Toy models of superposition replication
+
+#### WRITINGS
+- [Something else built the world you live in](https://x.com/catmcgee/status/2054358701310382511?s=20) - Why technology is an environment and how it affects our evolution
+  
 #### Find me irl
 - Now: Buenos Aires
 - May: Shanghai for [the mu](https://x.com/themu_xyz/status/2013994255094837492)
