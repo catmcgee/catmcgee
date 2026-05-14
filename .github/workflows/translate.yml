@@ -25,14 +25,20 @@ jobs:
         run: npm install @anthropic-ai/sdk
 
       - name: Update translations
+        id: translate
+        continue-on-error: true
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: node .github/scripts/translate.js
 
       - name: Verify build still works
+        if: steps.translate.outcome == 'success'
+        id: verify
+        continue-on-error: true
         run: node tohtml.js
 
       - name: Commit updated translations
+        if: steps.translate.outcome == 'success' && steps.verify.outcome == 'success'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -40,3 +46,10 @@ jobs:
           git diff --staged --quiet && echo "No translation changes" && exit 0
           git commit -m "Auto-translate README changes to ca, es, ga"
           git push
+
+      - name: Report translation status
+        if: steps.translate.outcome != 'success' || steps.verify.outcome != 'success'
+        run: |
+          echo "::warning::Translation step did not complete cleanly — English site deploy will proceed regardless."
+          echo "translate: ${{ steps.translate.outcome }}"
+          echo "verify: ${{ steps.verify.outcome }}"

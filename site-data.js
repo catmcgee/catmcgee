@@ -6,7 +6,7 @@ const site = {
   locales: {
     en: {
       code: 'en',
-      switcherLabel: 'EN',
+      switcherLabel: '🇺🇸🇬🇧 EN',
       nativeLabel: 'English',
       route: '/',
     },
@@ -232,12 +232,12 @@ const site = {
   translations: {
     ca: {
       greeting: 'Hola 👋',
-      heroTitle: 'Sóc una enginyera de developer relations d’Irlanda establerta a Buenos Aires',
+      heroTitle: 'Sóc una enginyera de developer relations d’Irlanda ☘️ establerta a Buenos Aires',
       intro:
-        'M’interessa construir un món digital basat en principis que també importen fora de la pantalla: propietat, comunitat, conseqüències socials, privadesa i confiança. Segueix el meu camí a 🐦 [Twitter/X](https://www.twitter.com/catmcgee/).',
+        'M’interessa construir un món digital basat en els principis del nostre món irl: propietat, comunitat, conseqüències socials, privadesa i confiança. Segueix el meu camí a 🐦 [Twitter/X](https://www.twitter.com/catmcgee/).',
       now: [
-        'Enginyera de Developer Relations a la Solana Foundation, centrada en la privadesa i en millorar la devex per a agents',
-        'M’interessen la IA, la privadesa, la criptografia i qualsevol tecnologia que faci el món digital més humà',
+        'Enginyera de Developer Relations a la Solana Foundation, centrada en la privadesa i la devex',
+        'M’interessen la IA, la privadesa, la criptografia i qualsevol cosa que faci la tecnologia més humana',
       ],
       previously: [
         '💚 Enginyera de Developer Relations a [Aztec](https://aztec.network/)',
@@ -254,7 +254,7 @@ const site = {
         ],
         'Random fun': [
           '[Reality check](https://realitycheck.mcgee.cat/) - Lectures astrològiques des de primers principis per a gent que no creu en l’astrologia',
-          'Beekeeper (bees in TEEs) - Fer que agents d’IA assumeixin de manera autònoma la feina avorrida mantenint la privadesa',
+          'Beekeeper (bees in TEEs) - Programari empresarial perquè agents d’IA facin de manera autònoma les parts avorrides de la teva feina, mantenint un control total i privadesa',
         ],
       },
       locations: [
@@ -264,12 +264,12 @@ const site = {
     },
     es: {
       greeting: 'Hola 👋',
-      heroTitle: 'Soy una ingeniera de developer relations de Irlanda viviendo en Buenos Aires',
+      heroTitle: 'Soy una ingeniera de developer relations de Irlanda ☘️ viviendo en Buenos Aires',
       intro:
-        'Me interesa construir un mundo digital basado en principios que también importan fuera de la pantalla: propiedad, comunidad, consecuencia social, privacidad y confianza. Seguime en 🐦 [Twitter/X](https://www.twitter.com/catmcgee/).',
+        'Me interesa construir un mundo digital basado en los principios de nuestro mundo irl: propiedad, comunidad, consecuencia social, privacidad y confianza. Seguime en 🐦 [Twitter/X](https://www.twitter.com/catmcgee/).',
       now: [
-        'Ingeniera de Developer Relations en Solana Foundation, centrada en privacidad y en mejorar la devex para agentes',
-        'Me interesan la IA, la privacidad, la criptografía y cualquier tecnología que haga el mundo digital más humano',
+        'Ingeniera de Developer Relations en Solana Foundation, centrada en privacidad y devex',
+        'Me interesan la IA, la privacidad, la criptografía y cualquier cosa que haga la tecnología más humana',
       ],
       previously: [
         '💚 Ingeniera de Developer Relations en [Aztec](https://aztec.network/)',
@@ -286,7 +286,7 @@ const site = {
         ],
         'Random fun': [
           '[Reality check](https://realitycheck.mcgee.cat/) - Lecturas astrológicas desde primeros principios para gente que no cree en la astrología',
-          'Beekeeper (bees in TEEs) - Lograr que agentes de IA asuman de forma autónoma la parte aburrida del trabajo manteniendo la privacidad',
+          'Beekeeper (bees in TEEs) - Software empresarial para que agentes de IA hagan de forma autónoma las partes aburridas de tu trabajo, manteniendo control total y privacidad',
         ],
       },
       locations: [
@@ -296,12 +296,12 @@ const site = {
     },
     ga: {
       greeting: 'Dia dhuit 👋',
-      heroTitle: 'Is innealtóir developer relations as Éirinn mé agus tá mé lonnaithe i Buenos Aires',
+      heroTitle: 'Is innealtóir developer relations as Éirinn ☘️ mé agus tá mé lonnaithe i Buenos Aires',
       intro:
-        'Tá suim agam domhan digiteach a thógáil bunaithe ar phrionsabail a bhfuil tábhacht leo lasmuigh den scáileán freisin: úinéireacht, pobal, iarmhairt shóisialta, príobháideachas, agus muinín. Lean mé ar 🐦 [Twitter/X](https://www.twitter.com/catmcgee/).',
+        'Tá suim agam domhan digiteach a thógáil bunaithe ar phrionsabail an domhain irl s’againne: úinéireacht, pobal, iarmhairt shóisialta, príobháideachas, agus muinín. Lean mé ar 🐦 [Twitter/X](https://www.twitter.com/catmcgee/).',
       now: [
-        'Innealtóir Developer Relations ag Solana Foundation, dírithe ar phríobháideachas agus ar fheabhas a chur ar devex do ghníomhairí',
-        'Tá suim agam in IS, i bpríobháideachas, i gcripteagrafaíocht, agus in aon teicneolaíocht a dhéanann an domhan digiteach níos daonna',
+        'Innealtóir Developer Relations ag Solana Foundation, dírithe ar phríobháideachas agus ar devex',
+        'Tá suim agam in IS, i bpríobháideachas, i gcripteagrafaíocht, agus in aon rud a dhéanann an teicneolaíocht níos daonna',
       ],
       previously: [
         '💚 Innealtóir Developer Relations ag [Aztec](https://aztec.network/)',
@@ -318,7 +318,7 @@ const site = {
         ],
         'Random fun': [
           '[Reality check](https://realitycheck.mcgee.cat/) - Léamha réalteolaíochta ó chéadphrionsabail do dhaoine nach gcreideann san réalteolaíocht',
-          'Beekeeper (bees in TEEs) - Gníomhairí IS a chur i mbun na gcodanna leadránacha den obair go huathrialach agus príobháideachas á choinneáil acu',
+          'Beekeeper (bees in TEEs) - Bogearraí fiontair chun gníomhairí IS a chur i mbun na gcodanna leadránacha den obair go huathrialach, agus smacht iomlán agus príobháideachas á gcoinneáil',
         ],
       },
       locations: [

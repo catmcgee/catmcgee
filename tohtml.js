@@ -126,7 +126,7 @@ function assertLength(actual, expected, label) {
   }
 }
 
-function validateReadmeModel(model) {
+function validateReadmeBaseModel(model) {
   if (!model.greeting || !model.heroTitle || !model.intro) {
     throw new Error('README parsing failed. Expected greeting, hero title, and intro paragraph.');
   }
@@ -140,15 +140,15 @@ function validateReadmeModel(model) {
       throw new Error(`README structure drift detected. Expected project group "${groupName}".`);
     }
   });
+}
 
-  Object.entries(site.translations).forEach(([locale, translation]) => {
-    assertLength(model.now, translation.now, `${locale}.now`);
-    assertLength(model.previously, translation.previously, `${locale}.previously`);
-    assertLength(model.locations, translation.locations, `${locale}.locations`);
-
-    expectedGroups.forEach((groupName) => {
-      assertLength(model.projects[groupName], translation.projects[groupName], `${locale}.projects.${groupName}`);
-    });
+function validateLocaleTranslation(model, locale, translation) {
+  const expectedGroups = site.readmeSnapshot.projectGroups;
+  assertLength(model.now, translation.now, `${locale}.now`);
+  assertLength(model.previously, translation.previously, `${locale}.previously`);
+  assertLength(model.locations, translation.locations, `${locale}.locations`);
+  expectedGroups.forEach((groupName) => {
+    assertLength(model.projects[groupName], translation.projects[groupName], `${locale}.projects.${groupName}`);
   });
 }
 
@@ -433,17 +433,39 @@ Sitemap: ${site.siteUrl}/sitemap.xml
 function buildSite() {
   const readme = fs.readFileSync(path.join(outRoot, 'README.md'), 'utf8').trim();
   const model = parseReadme(readme);
-  validateReadmeModel(model);
+  validateReadmeBaseModel(model);
 
-  localeCodes.forEach((locale) => {
-    const markdown = locale === 'en' ? readme : buildLocalizedMarkdown(locale);
-    writeRoute(site.locales[locale].route, renderPage(locale, markdown));
+  const built = [];
+  const skipped = [];
+
+  // Always build English first so the primary site publishes even if a
+  // translation is stale or malformed.
+  writeRoute(site.locales.en.route, renderPage('en', readme));
+  built.push('en');
+
+  localeCodes.filter((code) => code !== 'en').forEach((locale) => {
+    try {
+      const translation = site.translations[locale];
+      if (!translation) throw new Error(`No translation for ${locale}`);
+      validateLocaleTranslation(model, locale, translation);
+      const markdown = buildLocalizedMarkdown(locale);
+      writeRoute(site.locales[locale].route, renderPage(locale, markdown));
+      built.push(locale);
+    } catch (err) {
+      console.warn(`Skipping ${locale}: ${err.message}`);
+      skipped.push(locale);
+    }
   });
 
   buildSitemap();
   buildRobots();
+
+  return { built, skipped };
 }
 
-buildSite();
+const result = buildSite();
 
-console.log(`Generated ${localeCodes.length} localized one-page profiles from README.md.`);
+console.log(`Generated ${result.built.length} localized one-page profiles from README.md (${result.built.join(', ')}).`);
+if (result.skipped.length) {
+  console.warn(`Skipped ${result.skipped.length} locale(s) due to drift: ${result.skipped.join(', ')}.`);
+}
